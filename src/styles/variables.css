@@ -1,0 +1,50 @@
+:root {
+  /* Colors */
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #141414;
+
+  --text-primary: #f5f5f5;
+  --text-secondary: #a3a3a3;
+  --text-muted: #525252;
+
+  --accent-primary: #3b82f6;
+  /* Premium Blue */
+  --accent-glow: rgba(59, 130, 246, 0.5);
+
+  --gradient-primary: linear-gradient(to right, #ffffff, #999999);
+
+  --border-subtle: #262626;
+
+  /* Typography */
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+
+  /* Animation */
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-card: #ffffff;
+
+  --text-primary: #171717;
+  --text-secondary: #525252;
+  --text-muted: #737373;
+
+  --accent-primary: #2563eb;
+  /* Slightly darker blue for contrast on white */
+  --accent-glow: rgba(37, 99, 235, 0.15);
+
+  --gradient-primary: linear-gradient(to right, #171717, #525252);
+
+  --border-subtle: #e5e5e5;
+}
