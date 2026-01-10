@@ -1,9 +1,10 @@
+import { Project } from '@/types/project';
 import { useState } from 'react';
 import './Portfolio.css';
 import './Portfolio_loadmore.css';
 import ProjectModal from './ProjectModal';
 
-const projects = [
+const projects: Project[] = [
   {
     id: 1,
     title: 'E-Commerce Platform',
@@ -45,23 +46,51 @@ const projects = [
     category: 'Creative Dev',
     description: 'WebGL을 활용한 인터랙티브 경험.',
     color: '#1a1a1a'
+  },
+  {
+    id: 7,
+    title: 'Healthcare App',
+    category: 'Mobile App',
+    description: '환자 데이터 관리 및 예약 시스템.',
+    color: '#1a1a1a'
+  },
+  {
+    id: 8,
+    title: 'Fashion Brand Identity',
+    category: 'Branding',
+    description: '현대적인 패션 브랜드를 위한 아이덴티티 디자인.',
+    color: '#1a1a1a'
+  },
+  {
+    id: 9,
+    title: 'Social Media Campaign',
+    category: 'Marketing',
+    description: 'MZ세대를 타겟으로 한 소셜 미디어 캠페인.',
+    color: '#1a1a1a'
+  },
+  {
+    id: 10,
+    title: 'Educational Platform',
+    category: 'Web App',
+    description: '온라인 학습 및 평가 관리 시스템.',
+    color: '#1a1a1a'
   }
 ];
 
 const Portfolio = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [visibleCount, setVisibleCount] = useState(3);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const handleLoadMore = () => {
-    setVisibleCount(prev => prev + 3);
-  };
+  const gridProjects = projects.slice(0, 6);
+  const carouselProjects = projects.slice(6);
 
   return (
     <section id="portfolio" className="section portfolio">
       <div className="container">
         <h2 className="section-title">Selected Works</h2>
+        
+        {/* Initial 6 Items Grid */}
         <div className="project-grid">
-          {projects.slice(0, visibleCount).map((project) => (
+          {gridProjects.map((project) => (
             <div
               key={project.id}
               className="project-card"
@@ -82,9 +111,33 @@ const Portfolio = () => {
           ))}
         </div>
         
-        {visibleCount < projects.length && (
-          <div className="load-more-container">
-            <button className="secondary-btn" onClick={handleLoadMore}>더 보기</button>
+        {/* Remaining Items Carousel */}
+        {carouselProjects.length > 0 && (
+          <div className="carousel-section">
+            <h3 className="carousel-title">More Projects</h3>
+            <div className="carousel-container">
+              <div className="carousel-track">
+                {carouselProjects.map((project) => (
+                  <div
+                    key={project.id}
+                    className="carousel-item"
+                    onClick={() => setSelectedProject(project)}
+                  >
+                    <div className="project-card compact">
+                      <div className="project-image" style={{ background: project.color }}>
+                         <div className="project-overlay">
+                          <span>보기</span>
+                        </div>
+                      </div>
+                      <div className="project-info">
+                        <span className="project-category">{project.category}</span>
+                        <h3 className="project-title">{project.title}</h3>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         )}
       </div>
