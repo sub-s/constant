@@ -73,15 +73,48 @@
     font-size: 0.9rem;
     color: var(--text-secondary);
 }
+
 .carousel-section {
     margin-top: var(--spacing-xl);
+}
+
+.carousel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding: 0 var(--spacing-xs);
 }
 
 .carousel-title {
     font-size: 1.5rem;
     color: var(--text-primary);
-    margin-bottom: var(--spacing-md);
-    padding-left: var(--spacing-xs);
+    margin-bottom: 0;
+}
+
+.carousel-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.carousel-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.carousel-btn:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .carousel-container {
@@ -95,9 +128,19 @@
     gap: var(--spacing-md);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding-bottom: 20px;
+    scroll-snap-type: x mandatory;
+    padding: 20px 0 20px 0;
+    /* Add top padding for hover lift, keep bottom for buffer */
     -ms-overflow-style: none;
     scrollbar-width: none;
+    cursor: grab;
+    /* Enable grab cursor */
+    user-select: none;
+    /* Prevent text selection while dragging */
+}
+
+.carousel-track:active {
+    cursor: grabbing;
 }
 
 .carousel-track::-webkit-scrollbar {
@@ -108,6 +151,8 @@
     flex: 0 0 auto;
     width: 280px;
     scroll-snap-align: start;
+    cursor: pointer;
+    /* Ensure clickable */
 }
 
 /* Compact Card Adjustments */

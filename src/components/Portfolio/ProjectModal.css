@@ -65,6 +65,32 @@
     padding-bottom: 0;
 }
 
+.modal-meta {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.meta-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.meta-value {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
 .modal-category {
     color: var(--accent-primary);
     font-size: 0.875rem;

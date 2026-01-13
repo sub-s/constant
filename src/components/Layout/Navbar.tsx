@@ -1,10 +1,13 @@
 import logoSymbol from '@/assets/logo-symbol.svg';
 import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import './Navbar_theme.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,12 +17,20 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  // Handle cross-page scrolling
+  useEffect(() => {
+    if (location.state && location.state.scrollTo) {
+        const sectionId = location.state.scrollTo;
+        const element = document.getElementById(sectionId);
+        if (element) {
+            setTimeout(() => {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }, 100); // Small delay to ensure render
+        }
+        // Clear state to avoid scrolling on subsequent refreshes (optional but good practice)
+        window.history.replaceState({}, document.title);
     }
-  };
+  }, [location]);
 
   const [theme, setTheme] = useState('dark');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -33,7 +44,8 @@ const Navbar = () => {
       setTheme(savedTheme);
       document.documentElement.setAttribute('data-theme', savedTheme);
     } else if (!prefersDark) {
-       // logic handled
+      setTheme('light');
+      document.documentElement.setAttribute('data-theme', 'light');
     }
   }, []);
 
@@ -48,9 +60,23 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const handleLinkClick = (id: string) => {
-    scrollToSection(id);
     setIsMobileMenuOpen(false);
+
+    if (location.pathname === '/') {
+        // If on home page, just scroll
+        scrollToSection(id);
+    } else {
+        // If on subpage, navigate home with state
+        navigate('/', { state: { scrollTo: id } });
+    }
   };
 
   return (

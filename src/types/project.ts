@@ -4,4 +4,8 @@ export interface Project {
   category: string;
   description: string;
   color: string;
+  client?: string;
+  period?: string;
+  stack?: string[];
+  image?: string;
 }

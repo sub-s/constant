@@ -1,27 +1,31 @@
 
 import noImage from '@/assets/no-image.svg';
+import '@/components/Portfolio/Portfolio.css';
+import ProjectModal from '@/components/Portfolio/ProjectModal';
 import { projects } from '@/data/projects';
 import { Project } from '@/types/project';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Portfolio.css';
-import './Portfolio_loadmore.css';
-import ProjectModal from './ProjectModal';
+import { useEffect, useState } from 'react';
 
-const Portfolio = () => {
+const PortfolioArchive = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const navigate = useNavigate();
 
-  const gridProjects = projects.slice(0, 6);
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <section id="portfolio" className="section portfolio">
+    <div className="portfolio-archive-page" style={{ paddingTop: '80px', minHeight: '100vh', background: 'var(--bg-primary)' }}>
       <div className="container">
-        <h2 className="section-title">Selected Works</h2>
-        
-        {/* Initial 6 Items Grid */}
+        <div style={{ marginBottom: '40px', textAlign: 'center' }}>
+            <h1 className="section-title">All Projects</h1>
+            <p style={{ color: 'var(--text-secondary)', marginTop: '10px' }}>
+                Constant가 진행한 {projects.length}개의 프로젝트 아카이브입니다.
+            </p>
+        </div>
+
         <div className="project-grid">
-          {gridProjects.map((project) => (
+          {projects.map((project) => (
             <div
               key={project.id}
               className="project-card"
@@ -31,17 +35,16 @@ const Portfolio = () => {
                 <img 
                     src={project.image || noImage} 
                     alt={project.title} 
-                    className={!project.image ? 'no-image' : ''}
                     style={{ 
                         width: '100%', 
                         height: '100%', 
                         objectFit: project.image ? 'cover' : 'contain',
                         backgroundColor: project.image ? 'transparent' : '#1a1a1a',
-                        padding: project.image ? 0 : '2rem'
+                         padding: project.image ? 0 : '2rem'
                     }}
                 />
                 <div className="project-overlay">
-                  <span>케이스 스터디 보기</span>
+                  <span>자세히 보기</span>
                 </div>
               </div>
               <div className="project-info">
@@ -52,17 +55,14 @@ const Portfolio = () => {
             </div>
           ))}
         </div>
-        
-        {/* View All Button */}
-        <div className="view-all-container" style={{ textAlign: 'center', marginTop: '60px' }}>
-            <button 
-                className="primary-btn" 
-                onClick={() => navigate('/portfolio')}
-                style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}
-            >
-                View All Projects ({projects.length})
-            </button>
-        </div>
+      </div>
+
+      <div style={{ padding: '60px 0', textAlign: 'center', borderTop: '1px solid var(--border-subtle)', marginTop: '60px' }}>
+          <footer className="footer">
+            <p className="copyright">
+                &copy; {new Date().getFullYear()} Constant. All rights reserved.
+            </p>
+          </footer>
       </div>
 
       {selectedProject && (
@@ -71,8 +71,8 @@ const Portfolio = () => {
           onClose={() => setSelectedProject(null)}
         />
       )}
-    </section>
+    </div>
   );
 };
 
-export default Portfolio;
+export default PortfolioArchive;

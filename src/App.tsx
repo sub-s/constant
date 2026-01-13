@@ -1,22 +1,21 @@
-import About from '@/components/About/About';
-import Contact from '@/components/Contact/Contact';
-import Hero from '@/components/Hero/Hero';
 import Navbar from '@/components/Layout/Navbar';
 import ScrollToTop from '@/components/Layout/ScrollToTop';
-import Portfolio from '@/components/Portfolio/Portfolio';
-import Services from '@/components/Services/Services';
+import Home from '@/pages/Home';
+import PortfolioArchive from '@/pages/PortfolioArchive';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="app">
-      <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <Portfolio />
-      <Contact />
-      <ScrollToTop />
-    </div>
+    <Router>
+      <div className="app">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/portfolio" element={<PortfolioArchive />} />
+        </Routes>
+        <ScrollToTop />
+      </div>
+    </Router>
   );
 }
 

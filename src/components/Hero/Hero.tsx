@@ -1,7 +1,5 @@
 import './Hero.css';
 
-import './Hero.css';
-
 const Hero = () => {
   return (
     <section className="hero" id="home">
