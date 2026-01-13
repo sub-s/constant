@@ -16,7 +16,7 @@ const Contact = () => {
 
         <footer className="footer">
           <div className="social-links">
-            <a href="#">GitHub</a>
+            <a href="https://github.com/sub-s">GitHub</a>
             <a href="#">LinkedIn</a>
             <a href="#">Instagram</a>
           </div>

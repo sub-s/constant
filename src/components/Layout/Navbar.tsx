@@ -66,6 +66,7 @@ const Navbar = () => {
         </button>
 
         <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
+          <li><button onClick={() => handleLinkClick('home')}>홈</button></li>
           <li><button onClick={() => handleLinkClick('about')}>소개</button></li>
           <li><button onClick={() => handleLinkClick('services')}>서비스</button></li>
           <li><button onClick={() => handleLinkClick('portfolio')}>포트폴리오</button></li>

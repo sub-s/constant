@@ -1,5 +1,7 @@
 import './Hero.css';
 
+import './Hero.css';
+
 const Hero = () => {
   return (
     <section className="hero" id="home">
@@ -15,7 +17,7 @@ const Hero = () => {
           <span className="text-secondary">In a Changing World.</span>
         </h1>
         <p className="hero-subtitle">
-          Constant는 변하지 않는 가치를 만드는 웹 퍼블리싱 & 프론트엔드 개발 1인 스튜디오입니다.
+          Constant는 변하지 않는 가치를 만드는 웹 프론트엔드 개발 스튜디오입니다.
           견고하고 접근성 높은, 최적화된 웹 인터페이스를 구축합니다.
         </p>
         <div className="hero-actions">

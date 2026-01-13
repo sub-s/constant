@@ -1,8 +1,14 @@
+import { Project } from '@/types/project';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import './ProjectModal.css';
 
-const ProjectModal = ({ project, onClose }) => {
+interface ProjectModalProps {
+  project: Project | null;
+  onClose: () => void;
+}
+
+const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
