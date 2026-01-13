@@ -31,7 +31,12 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
   return createPortal(
     <div className={`modal-overlay ${isOpen ? 'open' : ''}`} onClick={handleClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close" onClick={handleClose}>&times;</button>
+        <button className="modal-close" onClick={handleClose} aria-label="Close modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
         
         <div className="modal-header">
           <span className="modal-category">{project.category}</span>

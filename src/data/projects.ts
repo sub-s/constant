@@ -1,6 +1,9 @@
 
 import { Project } from '@/types/project';
 
+// 이미지 import 예시 (상단에 추가)
+// import project1 from '@/assets/images/project1.jpg';
+
 export const projects: Project[] = [
   // Selected Works (Top 6)
   {
@@ -11,7 +14,9 @@ export const projects: Project[] = [
     stack: ['Figma', 'React', 'HTML', 'JavaScript', 'CSS', 'Git'],
     category: 'UI/UX & Dev',
     description: '1금융권 API 포털의 UI/UX 설계 및 프론트엔드 개발.',
-    color: '#e02f4e'
+    color: '#e02f4e',
+    // image: project1, // 이런 식으로 이미지를 연결하시면 됩니다.
+    image: undefined // 현재는 이미지가 없으므로 undefined (또는 삭제)
   },
   {
     id: 2,

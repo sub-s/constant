@@ -42,6 +42,7 @@ const Portfolio = () => {
                 />
                 <div className="project-overlay">
                   <span>케이스 스터디 보기</span>
+                  {/* <span style={{ fontSize: '0.8rem', marginTop: '0.5rem', opacity: 0.8 }}>Size: 1920 x 1080 (16:9)</span> */}
                 </div>
               </div>
               <div className="project-info">
