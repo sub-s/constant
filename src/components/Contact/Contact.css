@@ -126,12 +126,15 @@
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    margin-bottom: var(--spacing-xl);
+    margin: 0 auto var(--spacing-xl);
     flex-wrap: wrap;
     padding: 0 var(--spacing-md);
+    max-width: 900px;
 }
 
 .contact-card {
+    flex: 1;
+    flex-basis: 0;
     display: flex;
     align-items: center;
     gap: 1rem;

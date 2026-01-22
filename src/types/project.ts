@@ -1,5 +1,5 @@
 export interface Project {
-  id: number;
+  // id: number;
   title: string;
   category: string;
   description: string;
@@ -8,4 +8,5 @@ export interface Project {
   period?: string;
   stack?: string[];
   image?: string;
+  overview?: string;
 }

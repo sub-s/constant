@@ -21,9 +21,9 @@ const Portfolio = () => {
         
         {/* Initial 6 Items Grid */}
         <div className="project-grid">
-          {gridProjects.map((project) => (
+          {gridProjects.map((project, index) => (
             <div
-              key={project.id}
+              key={index}
               className="project-card"
               onClick={() => setSelectedProject(project)}
             >

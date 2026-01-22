@@ -79,7 +79,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           <div className="modal-details">
             <div className="detail-section">
               <h3>프로젝트 개요</h3>
-              <p>{project.description}</p>
+              <p className="modal-description">{project.overview || project.description}</p>
             </div>
             
             {project.stack && project.stack.length > 0 && (

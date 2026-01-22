@@ -25,9 +25,9 @@ const PortfolioArchive = () => {
         </div>
 
         <div className="project-grid">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <div
-              key={project.id}
+              key={index}
               className="project-card"
               onClick={() => setSelectedProject(project)}
             >
