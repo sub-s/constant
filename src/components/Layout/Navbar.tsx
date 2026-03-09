@@ -70,6 +70,11 @@ const Navbar = () => {
   const handleLinkClick = (id: string) => {
     setIsMobileMenuOpen(false);
 
+    if (id === 'ai-request') {
+        navigate('/ai-request');
+        return;
+    }
+
     if (location.pathname === '/') {
         // If on home page, just scroll
         scrollToSection(id);
@@ -82,7 +87,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-content">
-        <div className="logo-container">
+        <div className="logo-container" onClick={() => handleLinkClick('home')} style={{ cursor: 'pointer' }}>
           <img src={logoSymbol} alt="Constant" className="logo-symbol" />
           {/* <span className="logo-text">Constant</span> */}
         </div>
@@ -107,6 +112,7 @@ const Navbar = () => {
           <li><button onClick={() => handleLinkClick('about')}>소개</button></li>
           <li><button onClick={() => handleLinkClick('services')}>서비스</button></li>
           <li><button onClick={() => handleLinkClick('portfolio')}>포트폴리오</button></li>
+          <li><button className="nav-special-btn" onClick={() => handleLinkClick('ai-request')}>AI 제작 의뢰</button></li>
           <li><button className="cta-button" onClick={() => handleLinkClick('contact')}>문의하기</button></li>
           <li>
             <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">

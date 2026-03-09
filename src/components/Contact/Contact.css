@@ -59,6 +59,11 @@
     justify-content: center;
 }
 
+.submit-btn.loading {
+    opacity: 0.7;
+    cursor: wait;
+}
+
 /* Validation Styles */
 .form-group {
     display: flex;
@@ -69,7 +74,6 @@
 .form-group input.error,
 .form-group textarea.error {
     border-color: #ef4444;
-    /* Error Red */
 }
 
 .error-msg {
@@ -91,34 +95,38 @@
     }
 }
 
-.footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-md);
-    border-top: 1px solid var(--border-subtle);
-    padding-top: var(--spacing-lg);
-    width: 100%;
+/* Success Message Styles (Integrated with original style) */
+.success-message {
+    text-align: center;
+    padding: 4rem 2rem;
+    margin-bottom: var(--spacing-xl);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
 }
 
-.social-links {
-    display: flex;
-    gap: var(--spacing-md);
+.success-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
 }
 
-.social-links a {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    transition: color var(--transition-fast);
-}
-
-.social-links a:hover {
+.success-message h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--text-primary);
 }
 
-.copyright {
-    color: var(--text-muted);
-    font-size: 0.8rem;
+.success-message p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.error-notice {
+    color: #ef4444;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    text-align: center;
 }
 
 /* Contact Details */
@@ -145,6 +153,8 @@
     text-decoration: none;
     transition: all var(--transition-fast);
     min-width: 280px;
+    color: inherit;
+    text-align: left;
 }
 
 .contact-card:hover {
@@ -188,4 +198,29 @@
     color: var(--text-primary);
     font-size: 1rem;
     font-weight: 500;
+}
+
+/* Animation */
+.animate-in {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .contact-info-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
 }

@@ -45,9 +45,9 @@
   --text-secondary: #525252;
   --text-muted: #737373;
 
-  --accent-primary: #7c3aed;
-  /* Deep Violet for Light Mode */
-  --accent-glow: rgba(124, 58, 237, 0.15);
+  --accent-primary: var(--brand-red);
+  /* Brand Red for Light Mode */
+  --accent-glow: rgba(224, 47, 78, 0.15);
 
   --gradient-primary: linear-gradient(to right, #171717, #525252);
 

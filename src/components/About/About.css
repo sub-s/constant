@@ -1,4 +1,4 @@
-/* About Section */
+/* About Section Improvements */
 .about {
     background-color: var(--bg-primary);
     position: relative;
@@ -10,92 +10,125 @@
     flex-direction: column;
     gap: 4rem;
     width: 100%;
-    margin: 0 auto;
 }
 
 .about-content {
     text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .about-headline {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 800;
     margin-bottom: 2rem;
-    line-height: 1.3;
-    background: var(--gradient-primary);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-muted) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .about-content p {
     color: var(--text-secondary);
-    font-size: 1.125rem;
+    font-size: 1.15rem;
     line-height: 1.8;
     margin-bottom: 1.5rem;
-    font-weight: 300;
+    font-weight: 400;
     word-break: keep-all;
 }
 
-/* Updated Stats Layout - Vertical/Row Hybrid */
+/* Glassmorphism Stats Cards */
 .about-stats-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 2rem;
+    margin-top: 3rem;
 }
 
 .stat-item {
-    background: var(--bg-card);
-    padding: 2rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-subtle);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 3.5rem 2rem;
+    border-radius: 32px;
+    border: 1px solid rgba(224, 47, 78, 0.1);
     text-align: center;
-    transition: all var(--transition-smooth);
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     cursor: pointer;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* Removed overflow:hidden since we don't need it for the line anymore, 
-       and it might clip nice shadows if they expand */
+    overflow: hidden;
+}
+
+/* 상단 포인트 라인 */
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--brand-red), transparent);
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
+
+.stat-item:hover::before {
+    transform: scaleX(1);
 }
 
 .stat-item.clickable:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent-primary);
-    /* Premium Glow Effect instead of Line */
-    box-shadow: 0 20px 40px -15px var(--accent-glow);
-    background: linear-gradient(to bottom, var(--bg-card), rgba(59, 130, 246, 0.05));
+    transform: translateY(-15px) scale(1.02);
+    background: rgba(224, 47, 78, 0.05);
+    border-color: rgba(224, 47, 78, 0.3);
+    box-shadow: 0 30px 60px -12px rgba(224, 47, 78, 0.2);
 }
 
-/* Removed tacky top-line ::before animation */
+/* Light Mode Optimization */
+[data-theme="light"] .stat-item {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .stat-item.clickable:hover {
+    background: #ffffff;
+    box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.15);
+    /* 옅고 깨끗한 그림자 */
+    border-color: var(--brand-red);
+}
+
+[data-theme="light"] .stat-item::before {
+    opacity: 0.5;
+}
 
 .stat-number {
     display: block;
-    font-size: clamp(1.5rem, 2vw, 2.2rem);
-    font-weight: 700;
+    font-size: 1.8rem;
+    font-weight: 800;
     color: var(--text-primary);
-    margin-bottom: 0.75rem;
-    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
 }
 
 .stat-label {
     display: block;
-    font-size: 0.95rem;
-    color: var(--text-secondary);
+    font-size: 0.9rem;
+    color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: 500;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    transition: color 0.3s ease;
 }
 
 .stat-hint {
-    margin-top: 1rem;
+    margin-top: 2rem;
     font-size: 0.85rem;
-    color: var(--accent-primary);
+    color: var(--brand-red);
+    font-weight: 600;
     opacity: 0;
     transform: translateY(10px);
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
 
 .stat-item:hover .stat-hint {
@@ -104,16 +137,31 @@
 }
 
 .stat-item:hover .stat-number {
-    color: var(--accent-primary);
+    color: var(--brand-red);
+}
+
+.stat-item:hover .stat-label {
+    color: var(--text-primary);
+}
+
+/* 가로형 카드 모바일 최적화 */
+@media (max-width: 1024px) {
+    .about-stats-row {
+        gap: 1rem;
+    }
+
+    .stat-item {
+        padding: 2.5rem 1.5rem;
+    }
 }
 
 @media (max-width: 768px) {
     .about-headline {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .about-stats-row {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 }
