@@ -20,12 +20,14 @@ const AIRequest = () => {
         onClose={() => setWizardConfig({ ...wizardConfig, isOpen: false })} 
       />
       <div className="container">
-        <div className="ai-request-header" data-aos="fade-up">
-          <span className="subtitle">Premium AI Solution</span>
-          <h2 className="section-title">
-            AI로 만드는 <span className="highlight">압도적 퀄리티</span>의 비즈니스
-          </h2>
-          <p className="section-desc">
+        <div className="ai-request-header">
+            <span className="subtitle">Premium Value with AI</span>
+            <h2 className="section-title">
+                고급 홈페이지 제작의 새로운 기준, <br />
+                <span className="highlight">Constant AI</span>가 제안합니다.
+            </h2>
+        </div>
+  <p className="section-desc">
             복잡한 구축과 운영은 AI가, 감각적인 포인트는 전문가가 채웁니다.<br />
             원하시는 서비스를 선택하여 AI 분석을 시작해보세요.
           </p>
@@ -37,7 +39,7 @@ const AIRequest = () => {
                 AI 전문 블로그 운영 의뢰
             </button>
           </div>
-        </div>
+
 
         <div className="features-grid">
           <div className="feature-card" data-aos="fade-up" data-aos-delay="100">
@@ -67,7 +69,7 @@ const AIRequest = () => {
             <div className="comparison-table modern-glass">
                 <div className="table-row header">
                     <div className="cell">비교 항목</div>
-                    <div className="cell">일반 업체 제작</div>
+                    <div className="cell">일반 제작</div>
                     <div className="cell cell-highlight">
                         Constant AI 제작 <span className="badge-premium">추천</span>
                     </div>
@@ -100,7 +102,7 @@ const AIRequest = () => {
             <div className="comparison-table modern-glass blog-table">
                 <div className="table-row header">
                     <div className="cell">비교 항목</div>
-                    <div className="cell">일반 대행사</div>
+                    <div className="cell">일반 운영</div>
                     <div className="cell cell-highlight">
                         Constant AI 운영 <span className="badge-premium premium-tag">PREMIUM</span>
                     </div>
@@ -177,13 +179,13 @@ const AIRequest = () => {
 
         <div className="ai-request-cta" data-aos="fade-up">
             <div className="cta-content">
-                <h3>압도적인 성장, <br />지금 바로 AI와 시작하세요.</h3>
+                <h3>압도적인 성장, <br />지금 바로 Constant와 시작하세요.</h3>
                 <div className="cta-actions">
                   <button className="primary-btn pulse" onClick={() => openWizard('website')}>
-                      AI 홈페이지 제작 의뢰
+                      홈페이지 제작 의뢰
                   </button>
                   <button className="primary-btn pulse blog-cta" onClick={() => openWizard('blog')}>
-                      AI 전문 블로그 운영 의뢰
+                      전문 블로그 운영 의뢰
                   </button>
                 </div>
             </div>

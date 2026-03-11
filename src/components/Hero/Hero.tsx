@@ -11,6 +11,7 @@ const Hero = () => {
       </div>
       <div className="container hero-content">
         <h1 className="hero-title">
+          <span className="sr-only">웹 퍼블리싱 & 프론트엔드 스튜디오 | </span>
           Consistent Value<br />
           <span className="text-secondary">In a Changing World.</span>
         </h1>
