@@ -11,6 +11,34 @@
     margin-bottom: 80px;
 }
 
+.section-desc {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.hero-action-area.dual-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin: 3.5rem 0 3.5rem;
+}
+
+.blog-btn {
+    background: linear-gradient(135deg, var(--brand-red), #ff6b6b) !important;
+    border: none !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(224, 47, 78, 0.3) !important;
+}
+
+.blog-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(224, 47, 78, 0.5) !important;
+    filter: brightness(1.1);
+}
+
 .ai-request-header .subtitle {
     display: inline-block;
     padding: 0.5rem 1.5rem;
@@ -32,27 +60,7 @@
     font-weight: 800;
 }
 
-.hero-action-area.dual-actions {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin: 3.5rem 0 3.5rem;
-    /* 간격 추가 */
-}
-
-.blog-btn {
-    background: linear-gradient(135deg, var(--brand-red), #ff6b6b) !important;
-    border: none !important;
-    color: white !important;
-    box-shadow: 0 4px 15px rgba(224, 47, 78, 0.3) !important;
-}
-
-.blog-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(224, 47, 78, 0.5) !important;
-    filter: brightness(1.1);
-}
+/* Existing button styles removed as they are merged into the new block above */
 
 .features-grid {
     display: grid;
@@ -161,22 +169,26 @@
     font-weight: 800;
 }
 
-/* Comparison Table Premium Upgrade */
+/* Comparison Table Premium Upgrade - Precision Premium Rebuild */
 .comparison-table {
-    margin-top: 40px;
-    border-radius: 32px;
+    margin-top: 50px;
+    border-radius: 16px;
     overflow: hidden;
-    background: #0f0f0f;
-    /* 더 진한 블랙으로 대비 극대화 */
+    background: #0d0d0d;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
 }
 
 .table-row {
     display: grid;
-    grid-template-columns: 1fr 1fr 1.3fr;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    grid-template-columns: 1.25fr 1fr 1.35fr;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     transition: background 0.3s ease;
+}
+
+.table-row:last-child {
+    border-bottom: none;
 }
 
 .table-row:not(.header):hover {
@@ -184,66 +196,68 @@
 }
 
 .table-row.header {
-    background: rgba(255, 255, 255, 0.08);
-    font-weight: 800;
-    color: var(--text-primary);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    font-weight: 700;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Sharper header line */
 }
 
 .cell {
-    padding: 2rem 1.5rem;
+    padding: 1.8rem 1.5rem;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
-    color: #eeeeee;
-    /* 기본 텍스트 더 밝게 */
+    font-size: 1.05rem;
+    color: #ffffff;
+    border-right: 1px solid rgba(255, 255, 255, 0.15); /* More visible vertical lines */
+}
+
+.cell:last-child {
+    border-right: none;
+}
+
+.cell:first-child {
+    justify-content: flex-start;
+    padding-left: 2.5rem;
+    color: #a3a3a3;
+    font-weight: 500;
 }
 
 .cell.cell-highlight {
     color: #ffffff !important;
     font-weight: 700;
-    background: rgba(255, 255, 255, 0.03);
-    /* 배경을 거의 투명하게 하여 세련미 강조 */
     position: relative;
-    border-left: 1px solid rgba(224, 47, 78, 0.1);
-    border-right: 1px solid rgba(224, 47, 78, 0.1);
     z-index: 1;
-    gap: 8px;
-    /* 텍스트와 배지 사이 간격 */
+    gap: 12px;
 }
 
 .cell.cell-highlight::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(180deg, rgba(224, 47, 78, 0.05) 0%, transparent 100%);
-    pointer-events: none;
-    z-index: -1;
+    display: none; /* Removed glow effect that hindered visibility */
 }
 
-/* Premium Recommendation Badge - Modern Inline Tag */
+/* Premium Recommendation Badge - Balanced Style */
 .badge-premium {
-    background: var(--brand-red);
-    color: white;
-    font-size: 0.65rem;
-    padding: 2px 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 0.7rem;
+    padding: 4px 10px;
     border-radius: 4px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    box-shadow: 0 2px 8px rgba(224, 47, 78, 0.3);
-    white-space: nowrap;
-    vertical-align: middle;
-    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
+}
+
+.premium-tag {
+    background: var(--brand-red);
+    color: #ffffff;
+    border: none;
 }
 
 .table-row.header .cell.cell-highlight {
-    background: rgba(224, 47, 78, 0.05) !important;
     font-size: 1.1rem;
+    color: #ffffff !important;
 }
 
 .table-caption {

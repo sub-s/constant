@@ -17,9 +17,9 @@ const AIWizard = ({ isOpen, type, onClose }: { isOpen: boolean, type: 'website' 
   const getOfferData = () => {
     if (type === 'blog') {
       return {
-        title: 'Premium AI Blog Auto-Pilot',
+        title: 'Premium Blog Auto-Pilot',
         price: '400,000원',
-        features: ['워드프레스 기반 시스템', 'AI 자동 콘텐츠 생성', '고도화된 SEO 최적화', '주기적 키워드 분석 리포트'],
+        features: ['워드프레스 기반 시스템', '전문 콘텐츠 자동 생성', '고도화된 SEO 최적화', '주기적 키워드 분석 리포트'],
         period: '셋업 24시간 내'
       };
     }
@@ -27,30 +27,30 @@ const AIWizard = ({ isOpen, type, onClose }: { isOpen: boolean, type: 'website' 
     switch (formData.industry) {
       case '쇼핑몰':
         return {
-          title: 'Constant AI Commerce-v2',
+          title: 'Constant Commerce-v2',
           price: '150,000원',
           features: ['쇼핑몰 통합 엔진', '결제 연동 무상 지원', '상품 등록 자동화', '무제한 유지보수'],
           period: '3~5일'
         };
       case '기업/브랜드':
         return {
-          title: 'Constant AI Elite-v2',
+          title: 'Constant Elite-v2',
           price: '50,000원',
           features: ['브랜드 특화 엔진', '고해상도 에셋 생성', '반응형 UI 최적화', '무제한 유지보수'],
           period: '24시간 내'
         };
       case '포트폴리오':
         return {
-          title: 'Constant AI Light-v1',
+          title: 'Constant Light-v1',
           price: '30,000원',
           features: ['커스텀 레이아웃', '이미지 최적화 갤러리', '모바일 전용 뷰', '무제한 유지보수'],
           period: '24시간 내'
         };
       default:
         return {
-          title: 'Constant AI Standard',
+          title: 'Constant Standard',
           price: '50,000원',
-          features: ['표준 AI 엔진', '핵심 섹션 구성', '기본 호스팅 포함', '무제한 유지보수'],
+          features: ['표준 구축 엔진', '핵심 섹션 구성', '기본 호스팅 포함', '무제한 유지보수'],
           period: '24시간 내'
         };
     }
@@ -112,7 +112,7 @@ const AIWizard = ({ isOpen, type, onClose }: { isOpen: boolean, type: 'website' 
       <div className="wizard-container modern-glass">
         <div className="wizard-header-bar">
           <h3 className="wizard-title">
-            {type === 'website' ? 'AI 홈페이지 제작 의뢰' : 'AI 전문 블로그 운영 의뢰'}
+            {type === 'website' ? '프리미엄 홈페이지 제작 의뢰' : '전문 블로그 매니지먼트 의뢰'}
           </h3>
           <button className="close-btn-new" onClick={onClose} aria-label="닫기">&times;</button>
         </div>
@@ -134,8 +134,8 @@ const AIWizard = ({ isOpen, type, onClose }: { isOpen: boolean, type: 'website' 
                 <div className="brain-core"></div>
                 <div className="pulse-ring"></div>
               </div>
-              <h3>{type === 'website' ? 'AI가 비즈니스 모델을 분석 중입니다...' : 'AI가 블로그 운영 전략을 수립 중입니다...'}</h3>
-              <p>{type === 'website' ? '최적의 레이아웃과 디자인 에셋을 선별하고 있습니다.' : '키워드 경쟁도와 워드프레스 최적화 설정을 구성 중입니다.'}</p>
+              <h3>{type === 'website' ? '비즈니스 모델을 정밀 분석 중입니다...' : '블로그 운영 최적화 전략을 수립 중입니다...'}</h3>
+              <p>{type === 'website' ? '최적의 레이아웃과 독점 디자인 에셋을 선별하고 있습니다.' : '데이터 기반 키워드 분석과 시스템 최적화 설정을 구성 중입니다.'}</p>
               <div className="loading-stats">
                 {type === 'website' ? (
                   <>
@@ -179,7 +179,7 @@ const AIWizard = ({ isOpen, type, onClose }: { isOpen: boolean, type: 'website' 
                   {step === 2 && (
                     <div className="step-content animate-in">
                       <h2>브랜드의 이름을 알려주세요</h2>
-                      <p>AI가 브랜드명에 어울리는 톤앤매너를 추천합니다.</p>
+                      <p>브랜드명에 가장 어울리는 프리미엄 톤앤매너를 추천합니다.</p>
                       <input 
                         type="text" 
                         placeholder="예: Constant Lab" 
@@ -193,7 +193,7 @@ const AIWizard = ({ isOpen, type, onClose }: { isOpen: boolean, type: 'website' 
                   {step === 3 && (
                     <div className="step-content animate-in">
                       <h2>가장 중요한 목표는 무엇인가요?</h2>
-                      <p>목표에 따라 UI/UX 시나리오가 자동 생성됩니다.</p>
+                      <p>목표에 최적화된 하이엔드 UI/UX 시나리오가 설계됩니다.</p>
                       <div className="option-grid">
                         {['매출 증대', '브랜드 홍보', '문의 확보', '정보 전달'].map((item) => (
                           <button 
@@ -229,7 +229,7 @@ const AIWizard = ({ isOpen, type, onClose }: { isOpen: boolean, type: 'website' 
                   {step === 2 && (
                     <div className="step-content animate-in">
                       <h2>운영할 핵심 주제가 무엇인가요?</h2>
-                      <p>AI가 주제에 맞는 전문 키워드 군을 추출합니다.</p>
+                      <p>주제에 부합하는 고난도 전문 키워드 군을 추출합니다.</p>
                       <input 
                         type="text" 
                         placeholder="예: IT 트렌드, 건강 정보, 육아 지식 등" 
@@ -244,7 +244,7 @@ const AIWizard = ({ isOpen, type, onClose }: { isOpen: boolean, type: 'website' 
                   {step === 3 && (
                     <div className="step-content animate-in">
                       <h2>포스팅 빈도는 어느 정도가 좋을까요?</h2>
-                      <p>빈도에 따라 AI의 학습 및 생성 강도가 조절됩니다.</p>
+                      <p>빈도에 최적화된 콘텐츠 학습 및 생성 시스템이 가동됩니다.</p>
                       <div className="option-grid">
                         {['주 3회 집중', '매일 정기', '주 1회 심층', '비정규 대량'].map((item) => (
                           <button 
@@ -276,7 +276,7 @@ const AIWizard = ({ isOpen, type, onClose }: { isOpen: boolean, type: 'website' 
                       <li>인도/시작 예정: <span className="highlight-red">{getOfferData().period}</span></li>
                     </ul>
                   </div>
-                  <p className="final-desc">수립된 AI 전략으로 즉시 비즈니스를 <br/>가속화할 준비가 완료되었습니다.</p>
+                  <p className="final-desc">수립된 전문 전략으로 즉시 비즈니스를 <br/>가속화할 준비가 완료되었습니다.</p>
                   <button className="final-cta" onClick={handleFinalSubmit}>
                     이 조건으로 확정하기
                   </button>
@@ -294,7 +294,7 @@ const AIWizard = ({ isOpen, type, onClose }: { isOpen: boolean, type: 'website' 
                 onClick={nextStep}
                 disabled={!isStepValid()}
             >
-              {step === 3 ? 'AI 분석 시작' : '다음 단계'}
+              {step === 3 ? '전문 분석 시작' : '다음 단계'}
             </button>
           </div>
         )}

@@ -21,22 +21,22 @@ const AIRequest = () => {
       />
       <div className="container">
         <div className="ai-request-header">
-            <span className="subtitle">Premium Value with AI</span>
+            <span className="subtitle">Premium Value with Constant</span>
             <h2 className="section-title">
                 고급 홈페이지 제작의 새로운 기준, <br />
-                <span className="highlight">Constant AI</span>가 제안합니다.
+                <span className="highlight">Constant</span> 가 제안합니다.
             </h2>
         </div>
-  <p className="section-desc">
-            복잡한 구축과 운영은 AI가, 감각적인 포인트는 전문가가 채웁니다.<br />
-            원하시는 서비스를 선택하여 AI 분석을 시작해보세요.
+        <p className="section-desc">
+            복잡한 구축과 운영은 Constant에서, 감각적인 포인트는 전문가가 채웁니다.<br />
+            원하시는 서비스를 선택하여 시작해보세요.
           </p>
           <div className="hero-action-area dual-actions">
             <button className="primary-btn glass-btn" onClick={() => openWizard('website')}>
-                AI 홈페이지 제작 의뢰
+                홈페이지 제작 의뢰
             </button>
             <button className="primary-btn glass-btn blog-btn" onClick={() => openWizard('blog')}>
-                AI 전문 블로그 운영 의뢰
+                전문 블로그 운영 의뢰
             </button>
           </div>
 
@@ -65,13 +65,13 @@ const AIRequest = () => {
         </div>
 
         <div className="process-section" data-aos="fade-up">
-            <h3 className="sub-title">1. <span className="highlight-text">AI 홈페이지 제작</span> 비교</h3>
+            <h3 className="sub-title">1. <span className="highlight-text">하이엔드 홈페이지 제작</span> 비교</h3>
             <div className="comparison-table modern-glass">
                 <div className="table-row header">
                     <div className="cell">비교 항목</div>
                     <div className="cell">일반 제작</div>
                     <div className="cell cell-highlight">
-                        Constant AI 제작 <span className="badge-premium">추천</span>
+                        Constant 커스텀 제작 <span className="badge-premium">추천</span>
                     </div>
                 </div>
                 <div className="table-row">
@@ -92,19 +92,19 @@ const AIRequest = () => {
                 <div className="table-row">
                     <div className="cell">이미지 에셋</div>
                     <div className="cell">직접 준비</div>
-                    <div className="cell cell-highlight">AI 커스텀 생성</div>
+                    <div className="cell cell-highlight">독점 에셋 커스텀 생성</div>
                 </div>
             </div>
         </div>
 
         <div className="process-section" data-aos="fade-up">
-            <h3 className="sub-title">2. <span className="highlight-text">AI 전문 블로그 운영</span> 비교</h3>
+            <h3 className="sub-title">2. <span className="highlight-text">전문 블로그 올인원 매니지먼트</span> 비교</h3>
             <div className="comparison-table modern-glass blog-table">
                 <div className="table-row header">
                     <div className="cell">비교 항목</div>
                     <div className="cell">일반 운영</div>
                     <div className="cell cell-highlight">
-                        Constant AI 운영 <span className="badge-premium premium-tag">PREMIUM</span>
+                        Constant 토탈 매니지먼트 <span className="badge-premium premium-tag">PREMIUM</span>
                     </div>
                 </div>
                 <div className="table-row">
@@ -115,7 +115,7 @@ const AIRequest = () => {
                 <div className="table-row">
                     <div className="cell">콘텐츠 퀄리티</div>
                     <div className="cell">단순 정보 나열</div>
-                    <div className="cell cell-highlight">AI SEO 최적화 전문 포스팅</div>
+                    <div className="cell cell-highlight">데이터 기반 SEO 최적화 포스팅</div>
                 </div>
                 <div className="table-row">
                     <div className="cell">포스팅 빈도</div>
@@ -133,7 +133,7 @@ const AIRequest = () => {
                     <div className="cell cell-highlight">자동화 엔진 무상 업데이트</div>
                 </div>
             </div>
-            <div className="table-caption">* 블로그 운영 서비스는 워드프레스 설치 및 AI 자동화 셋업이 포함된 전문 서비스입니다.</div>
+            <div className="table-caption">* 블로그 운영 서비스는 워드프레스 설치 및 시스템 자동화 셋업이 포함된 전문 서비스입니다.</div>
         </div>
 
         <div className="process-section" data-aos="fade-up">
@@ -142,12 +142,12 @@ const AIRequest = () => {
                 <div className="step">
                     <span className="step-num">01</span>
                     <h4>상담 신청</h4>
-                    <p>AI 위저드 설문 작성</p>
+                    <p>스마트 진단 설문 작성</p>
                 </div>
                 <div className="step-line"></div>
                 <div className="step">
                     <span className="step-num">02</span>
-                    <h4>AI 분석 및 제안</h4>
+                    <h4>전문 분석 및 전략 제안</h4>
                     <p>맞춤형 엔진 설계</p>
                 </div>
                 <div className="step-line"></div>
@@ -164,11 +164,11 @@ const AIRequest = () => {
             <div className="faq-grid">
                 <div className="faq-item">
                     <h4>Q. 정말 제작비가 0원인가요?</h4>
-                    <p>네, 홈페이지 초기 구축 비용은 Constant AI 엔진이 부담합니다. 고객님은 월 운영 관리비만 지불하시면 됩니다.</p>
+                    <p>네, 홈페이지 초기 구축 비용은 Constant 독자 엔진이 부담합니다. 고객님은 월 운영 관리비만 지불하시면 됩니다.</p>
                 </div>
                 <div className="faq-item">
                     <h4>Q. 블로그 운영은 어떻게 자동화되나요?</h4>
-                    <p>워드프레스 기반의 AI 시스템이 업종 키워드를 분석하여 고퀄리티 콘텐츠를 정기적으로 생산하고 SEO를 최적화합니다.</p>
+                    <p>워드프레스 기반의 독자 시스템이 업종 키워드를 분석하여 고퀄리티 콘텐츠를 정기적으로 생산하고 SEO를 최적화합니다.</p>
                 </div>
                 <div className="faq-item">
                     <h4>Q. 유지보수 범위는 어디까지인가요?</h4>
