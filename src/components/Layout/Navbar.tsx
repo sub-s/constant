@@ -75,6 +75,11 @@ const Navbar = () => {
         return;
     }
 
+    if (id === 'login') {
+        navigate('/login');
+        return;
+    }
+
     if (location.pathname === '/') {
         // If on home page, just scroll
         scrollToSection(id);
@@ -112,6 +117,7 @@ const Navbar = () => {
           <li><button onClick={() => handleLinkClick('about')}>소개</button></li>
           <li><button onClick={() => handleLinkClick('services')}>서비스</button></li>
           <li><button onClick={() => handleLinkClick('portfolio')}>포트폴리오</button></li>
+          <li><button onClick={() => handleLinkClick('login')}>로그인</button></li>
           <li><button className="nav-special-btn" onClick={() => handleLinkClick('ai-request')}>AI 제작 의뢰</button></li>
           <li><button className="cta-button" onClick={() => handleLinkClick('contact')}>문의하기</button></li>
           <li>
