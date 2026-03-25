@@ -4,6 +4,11 @@ import { Project } from '@/types/project';
 // 이미지 import 예시 (상단에 추가)
 import project1 from '@/assets/images/project1.png';
 import project2 from '@/assets/images/project2.png';
+import project3 from '@/assets/images/project3.png';
+import project4 from '@/assets/images/project4.png';
+import project5 from '@/assets/images/project5.png';
+import project6 from '@/assets/images/project6.png';
+import project7 from '@/assets/images/project7.png';
 
 export const projects: Project[] = [
   // Selected Works (Top 6)
@@ -40,8 +45,8 @@ export const projects: Project[] = [
     description: '1금융권 API 포털의 UI/UX 설계 및 프론트엔드 개발.',
     overview: '제1금융권의 대외 API 서비스 제공을 위한 개발자 포털(Developer Portal) 구축 프로젝트입니다. 복잡한 API 문서를 직관적으로 탐색할 수 있는 UI/UX를 설계하고, 보안성과 접근성을 고려한 프론트엔드 개발을 주도했습니다. 사용자 중심의 인터페이스를 통해 외부 개발자들의 편의성을 극대화하고, 효율적인 API 연동 프로세스를 지원하는 플랫폼을 완성했습니다.',
     color: '#e02f4e',
-    // image: project1, // 이런 식으로 이미지를 연결하시면 됩니다.
-    image: undefined // 현재는 이미지가 없으므로 undefined (또는 삭제)
+    
+    image: project3, // 현재는 이미지가 없으므로 undefined (또는 삭제)
   },
   {
     
@@ -52,7 +57,8 @@ export const projects: Project[] = [
     category: 'Web Service',
     description: '중고차 재고 관리 및 딜러 전산 시스템 퍼블리싱.',
     overview: '중고차 매매 상사를 위한 통합 재고 관리 및 딜러 전산 시스템입니다. 실시간 차량 입출고 현황 파악, 시세 조회, 고객 관리 등 복잡한 비즈니스 로직을 직관적인 대시보드 형태로 시각화했습니다. 딜러들의 업무 효율성을 높이기 위해 모바일 최적화된 반응형 웹으로 구현하여 현장에서의 사용성을 강화했습니다.',
-    color: '#e17e35'
+    color: '#e17e35',
+    image: project4, // 이런 식으로 이미지를 연결하시면 됩니다.
   },
   {
     
@@ -63,7 +69,8 @@ export const projects: Project[] = [
     category: 'Enterprise',
     description: '삼성 디스플레이 품질 관리 시스템(QMS 2.0) UI 개발.',
     overview: '삼성디스플레이의 차세대 품질 관리 시스템(QMS 2.0) 구축 프로젝트입니다. 방대한 공정 데이터를 실시간으로 모니터링하고 분석할 수 있는 대시보드 UI를 개발했습니다. 복잡한 데이터 시각화 요구사항을 수행하며, 사용자가 직관적으로 품질 지표를 파악하고 신속한 의사결정을 내릴 수 있도록 UX를 최적화했습니다.',
-    color: '#f3c540'
+    color: '#f3c540',
+    image: project5,
   },
   {
     
@@ -74,7 +81,8 @@ export const projects: Project[] = [
     category: 'Enterprise',
     description: '삼성전자 DS부문 WIS 시스템 프론트엔드 구축.',
     overview: '삼성전자 DS부문의 글로벌 반도체 생산/관리를 위한 WIS(Waste Information System) 시스템 프론트엔드 구축에 참여했습니다. 엔터프라이즈 환경에 최적화된 컴포넌트 기반 아키텍처를 적용하여 유지보수성을 확보하고, 사내 임직원들이 효율적으로 업무를 처리할 수 있는 직관적이고 모던한 UI를 구현했습니다.',
-    color: '#2d3436'
+    color: '#2d3436',
+    image: project5,
   },
   {
     
@@ -85,7 +93,9 @@ export const projects: Project[] = [
     category: 'Public Sector',
     description: '한국항공우주연구원 웹사이트 리뉴얼 및 퍼블리싱.',
     overview: '한국항공우주연구원(KARI)의 공식 웹사이트 리뉴얼 프로젝트입니다. 항공우주 연구 성과를 효과적으로 전달하기 위해 인터랙티브한 UI 요소와 시각적 스토리텔링을 적용했습니다. 웹 접근성 표준을 준수하여 대국민 정보 접근성을 높이고, 연구원의 혁신적인 이미지를 디지털 공간에 구현했습니다.',
-    color: '#2d3436'
+    color: '#2d3436',
+    image: project6,
+    
   },
   {
     
@@ -96,7 +106,8 @@ export const projects: Project[] = [
     category: 'Finance',
     description: '다올저축은행 웹/모바일 뱅킹 UI 리뉴얼.',
     overview: '다올저축은행의 웹 및 모바일 뱅킹 서비스 리뉴얼 프로젝트입니다. 기존 금융 서비스의 딱딱한 이미지를 탈피하고, 사용자 친화적인 금융 경험을 제공하는 데 주력했습니다. 직관적인 네비게이션과 간결한 정보 구조를 설계하여 금융 상품 가입 및 조회 프로세스를 간소화하고, 고객 만족도를 향상시켰습니다.',
-    color: '#2d3436'
+    color: '#2d3436',
+    image: project7,
   },
 
   // Archived Projects (Carousel)
