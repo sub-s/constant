@@ -1,5 +1,3 @@
-
-import noImage from '@/assets/no-image.svg';
 import { projects } from '@/data/projects';
 import { Project } from '@/types/project';
 import { useState } from 'react';
@@ -7,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import './Portfolio.css';
 import './Portfolio_loadmore.css';
 import ProjectModal from './ProjectModal';
+import NoImage from './NoImage';
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -28,18 +27,19 @@ const Portfolio = () => {
               onClick={() => setSelectedProject(project)}
             >
               <div className="project-image">
-                <img 
-                    src={project.image || noImage} 
-                    alt={project.title} 
-                    className={!project.image ? 'no-image' : ''}
-                    style={{ 
-                        width: '100%', 
-                        height: '100%', 
-                        objectFit: project.image ? 'cover' : 'contain',
-                        backgroundColor: project.image ? 'transparent' : '#1a1a1a',
-                        padding: project.image ? 0 : '2rem'
-                    }}
-                />
+                {project.image ? (
+                    <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        style={{ 
+                            width: '100%', 
+                            height: '100%', 
+                            objectFit: 'cover'
+                        }}
+                    />
+                ) : (
+                    <NoImage />
+                )}
                 <div className="project-overlay">
                   <span>케이스 스터디 보기</span>
                   {/* <span style={{ fontSize: '0.8rem', marginTop: '0.5rem', opacity: 0.8 }}>Size: 1920 x 1080 (16:9)</span> */}

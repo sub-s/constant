@@ -1,8 +1,7 @@
-
-import noImage from '@/assets/no-image.svg';
 import { Project } from '@/types/project';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import NoImage from './NoImage';
 import './ProjectModal.css';
 
 interface ProjectModalProps {
@@ -60,20 +59,23 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
 
         <div className="modal-body">
           <div className="modal-image-placeholder" style={{ 
-              background: project.image ? 'transparent' : project.color,
-              border: project.image ? 'none' : '1px solid var(--border-subtle)'
+              background: 'none',
+              border: 'none'
           }}>
-             <img 
-                src={project.image || noImage} 
-                alt={project.title}
-                style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: project.image ? 'cover' : 'contain',
-                    padding: project.image ? 0 : '2rem',
-                    opacity: project.image ? 1 : 0.5
-                }} 
-            />
+             {project.image ? (
+                <img 
+                    src={project.image} 
+                    alt={project.title}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        opacity: 1
+                    }} 
+                />
+             ) : (
+                <NoImage />
+             )}
           </div>
           
           <div className="modal-details">

@@ -1,10 +1,9 @@
-
-import noImage from '@/assets/no-image.svg';
 import '@/components/Portfolio/Portfolio.css';
 import ProjectModal from '@/components/Portfolio/ProjectModal';
 import { projects } from '@/data/projects';
 import { Project } from '@/types/project';
 import { useEffect, useState } from 'react';
+import NoImage from '@/components/Portfolio/NoImage';
 
 const PortfolioArchive = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -32,17 +31,19 @@ const PortfolioArchive = () => {
               onClick={() => setSelectedProject(project)}
             >
               <div className="project-image">
-                <img 
-                    src={project.image || noImage} 
-                    alt={project.title} 
-                    style={{ 
-                        width: '100%', 
-                        height: '100%', 
-                        objectFit: project.image ? 'cover' : 'contain',
-                        backgroundColor: project.image ? 'transparent' : '#1a1a1a',
-                         padding: project.image ? 0 : '2rem'
-                    }}
-                />
+                {project.image ? (
+                    <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        style={{ 
+                            width: '100%', 
+                            height: '100%', 
+                            objectFit: 'cover'
+                        }}
+                    />
+                ) : (
+                    <NoImage />
+                )}
                 <div className="project-overlay">
                   <span>자세히 보기</span>
                 </div>

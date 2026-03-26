@@ -3,12 +3,43 @@ import { Project } from '@/types/project';
 
 // 이미지 import 예시 (상단에 추가)
 import project1 from '@/assets/images/project1.png';
+import project10 from '@/assets/images/project10.png';
+import project11 from '@/assets/images/project11.png';
+import project12 from '@/assets/images/project12.png';
+import project13 from '@/assets/images/project13.png';
+import project14 from '@/assets/images/project14.png';
+import project15 from '@/assets/images/project15.png';
+import project16 from '@/assets/images/project16.png';
+import project17 from '@/assets/images/project17.png';
+import project18 from '@/assets/images/project18.png';
+import project19 from '@/assets/images/project19.png';
 import project2 from '@/assets/images/project2.png';
+import project20 from '@/assets/images/project20.png';
+import project21 from '@/assets/images/project21.png';
+import project22 from '@/assets/images/project22.png';
+import project23 from '@/assets/images/project23.png';
+import project24 from '@/assets/images/project24.png';
+import project25 from '@/assets/images/project25.png';
+import project26 from '@/assets/images/project26.png';
+import project27 from '@/assets/images/project27.png';
+import project28 from '@/assets/images/project28.png';
+import project29 from '@/assets/images/project29.png';
 import project3 from '@/assets/images/project3.png';
+import project30 from '@/assets/images/project30.png';
+import project31 from '@/assets/images/project31.png';
+import project32 from '@/assets/images/project32.png';
+import project33 from '@/assets/images/project33.png';
+import project34 from '@/assets/images/project34.png';
+import project35 from '@/assets/images/project35.png';
+import project36 from '@/assets/images/project36.png';
+import project37 from '@/assets/images/project37.png';
+import project38 from '@/assets/images/project38.png';
 import project4 from '@/assets/images/project4.png';
 import project5 from '@/assets/images/project5.png';
 import project6 from '@/assets/images/project6.png';
 import project7 from '@/assets/images/project7.png';
+import project8 from '@/assets/images/project8.png';
+import project9 from '@/assets/images/project9.png';
 
 export const projects: Project[] = [
   // Selected Works (Top 6)
@@ -22,7 +53,6 @@ export const projects: Project[] = [
     overview: '하나은행의 FIRST 1Q UI/UX 설계 및 프론트엔드 개발.',
     color: '#e02f4e',
     image: project2, // 이런 식으로 이미지를 연결하시면 됩니다.
-    // image: undefined // 현재는 이미지가 없으므로 undefined (또는 삭제)
   },
    {
     title: 'KIA 자동차 챗봇',
@@ -119,7 +149,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'Git'],
     category: 'Finance',
     description: 'IBK기업은행 I-NET 시스템 UI 개발.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project8,
   },
   {
     
@@ -129,7 +160,8 @@ export const projects: Project[] = [
     stack: ['Zeplin', 'HTML', 'JavaScript', 'CSS', 'Git'],
     category: 'Finance',
     description: '교보생명보험 통합 리뉴얼 프로젝트 퍼블리싱.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project9,
   },
   {
     
@@ -139,7 +171,8 @@ export const projects: Project[] = [
     stack: ['Zeplin', 'Vue', 'HTML', 'JavaScript', 'CSS', 'Git'],
     category: 'Public Sector',
     description: '근로자 휴가지원사업 플랫폼 프론트엔드 개발.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project10,
   },
   {
     
@@ -149,7 +182,8 @@ export const projects: Project[] = [
     stack: ['Zeplin', 'HTML', 'JavaScript', 'CSS', 'Git'],
     category: 'Commerce',
     description: 'GS리테일 어바웃펫 쇼핑몰 UI 퍼블리싱.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project11,
   },
   {
     
@@ -159,7 +193,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'Git'],
     category: 'Platform',
     description: 'AI 제조 플랫폼 KAMP 웹사이트 구축.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project12,
   },
   {
     
@@ -169,7 +204,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'Git'],
     category: 'Commerce',
     description: '아이마켓코리아 B2B 쇼핑몰 UI 리뉴얼.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project13,
   },
   {
     
@@ -179,7 +215,8 @@ export const projects: Project[] = [
     stack: ['Zeplin', 'React', 'HTML', 'JavaScript', 'CSS', 'Git'],
     category: 'Commerce',
     description: '푸드 커머스 플랫폼 미식의시대 프론트엔드 개발.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project14,
   },
   {
     
@@ -189,7 +226,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'Vue', 'HTML', 'JavaScript', 'CSS', 'Git'],
     category: 'Web App',
     description: '미샤 업무용 웹앱(Michaatalk) 개발.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project15,
   },
   {
     
@@ -199,7 +237,8 @@ export const projects: Project[] = [
     stack: ['Zeplin', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Finance',
     description: '하나은행 비대면 계좌개설 서비스 UI 퍼블리싱.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project2,
   },
   {
     
@@ -209,7 +248,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Public Sector',
     description: '아이돌봄 서비스 모바일 웹 구축.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project16,
   },
   {
     
@@ -219,7 +259,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Finance',
     description: '우리은행 개인뱅킹 앱 웹뷰 UI 개발.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project17,
   },
   {
     
@@ -229,7 +270,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Hospitality',
     description: '롯데호텔 식음료 예약 시스템 UI 구축.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project18,
   },
   {
     
@@ -239,7 +281,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Finance',
     description: 'KB 리브메이트 포인트/결제 플랫폼 UI 개발.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project19,
   },
   {
     
@@ -249,7 +292,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Commerce',
     description: '삼성전자 공식 홈페이지 운영 및 UI 개선.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project5
   },
   {
     
@@ -259,7 +303,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Media',
     description: '한국경제TV 웹사이트 리뉴얼.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project20
   },
   {
     
@@ -268,8 +313,9 @@ export const projects: Project[] = [
     client: '롯데정보통신',
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Enterprise',
-    description: '롯데그룹 ECM(문서중앙화) 시스템 UI 개발.',
-    color: '#1a1a1a'
+    description: '롯데그룹 ECM 롯데 I몰 인도 쇼핑몰 개발',
+    color: '#1a1a1a',
+    image: project21
   },
   {
     
@@ -279,27 +325,29 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Finance',
     description: 'KB손해보험 대표 웹사이트 리뉴얼.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project22
   },
+  // {
+    
+  //   title: 'ING 생명, 농협생명 보험 컨텐츠',
+  //   period: '2016.04 - 2016.05',
+  //   client: 'ING, 농협생명',
+  //   stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
+  //   category: 'Finance',
+  //   description: '보험 상품 소개 및 마케팅 컨텐츠 페이지 제작.',
+  //   color: '#1a1a1a'
+  // },
   {
     
-    title: 'ING 생명, 농협생명 보험 컨텐츠',
-    period: '2016.04 - 2016.05',
-    client: 'ING, 농협생명',
-    stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
-    category: 'Finance',
-    description: '보험 상품 소개 및 마케팅 컨텐츠 페이지 제작.',
-    color: '#1a1a1a'
-  },
-  {
-    
-    title: '초록마을 내부 관리자',
+    title: '초록마을 관리자 시스템',
     period: '2016.03 - 2016.03',
     client: '초록마을',
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Commerce',
     description: '초록마을 관리자(Admin) 시스템 UI.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project23
   },
   {
     
@@ -309,7 +357,9 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Travel',
     description: '일본 료칸 예약 전문 사이트 구축.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project24
+
   },
   {
     
@@ -319,7 +369,9 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Travel',
     description: '일본 현지 버스 투어 예약 사이트 구축.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project24
+
   },
   {
     
@@ -329,7 +381,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Travel',
     description: '하나투어 일본법인 통합 관리 시스템 고도화.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project24
   },
   {
     
@@ -339,18 +392,19 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Finance',
     description: '펀드 상품 전용 마이크로사이트 UI.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project25
   },
-  {
+  // {
     
-    title: '클래비',
-    period: '2015.02 - 2015.03',
-    client: '클래비',
-    stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
-    category: 'Branding',
-    description: '캐릭터 브랜드 클래비 웹사이트 구축.',
-    color: '#1a1a1a'
-  },
+  //   title: '클래비',
+  //   period: '2015.02 - 2015.03',
+  //   client: '클래비',
+  //   stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
+  //   category: 'Branding',
+  //   description: '캐릭터 브랜드 클래비 웹사이트 구축.',
+  //   color: '#1a1a1a'
+  // },
   {
     
     title: '농사로(농촌진흥청) 웹사이트',
@@ -359,7 +413,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Public Sector',
     description: '국가 농업기술 포털 농사로 UI 구축.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project26
   },
   {
     
@@ -369,28 +424,30 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Public Sector',
     description: '농식품 공공데이터 개방 포털 UI 개발.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project27
   },
-  {
+  // {
     
-    title: '퍼스트피부과',
-    period: '2014.08 - 2014.10',
-    client: '퍼스트피부과',
-    stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
-    category: 'Medical',
-    description: '병원 홈페이지 리뉴얼.',
-    color: '#1a1a1a'
-  },
-  {
+  //   title: '퍼스트피부과',
+  //   period: '2014.08 - 2014.10',
+  //   client: '퍼스트피부과',
+  //   stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
+  //   category: 'Medical',
+  //   description: '병원 홈페이지 리뉴얼.',
+  //   color: '#1a1a1a'
+  // },
+  // {
     
-    title: '라이브스포츠 모바일 앱',
-    period: '2014.08 - 2014.09',
-    client: '라이브스포츠',
-    stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
-    category: 'Mobile App',
-    description: '스포츠 중계 및 정보 제공 앱 UI.',
-    color: '#1a1a1a'
-  },
+  //   title: '라이브스포츠 모바일 앱',
+  //   period: '2014.08 - 2014.09',
+  //   client: '라이브스포츠',
+  //   stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
+  //   category: 'Mobile App',
+  //   description: '스포츠 중계 및 정보 제공 앱 UI.',
+  //   color: '#1a1a1a',
+  // image: project28
+  // },
   {
     
     title: '비상교육',
@@ -399,7 +456,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Education',
     description: '교육 콘텐츠 프로모션 페이지.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project28
   },
   {
     
@@ -409,7 +467,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Optimization',
     description: '고객의 소리(VOC) 관리 시스템 UI 개발.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project29
   },
   {
     
@@ -419,7 +478,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Public Sector',
     description: 'R&D 지원 정보 센터 웹사이트.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project30
   },
   {
     
@@ -429,7 +489,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Enterprise',
     description: '연수원 소개 및 시설 안내 사이트.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project31
   },
   {
     
@@ -439,48 +500,46 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Public Sector',
     description: '새만금 개발청 공식 홈페이지 구축.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project32
   },
-  {
+  // {
     
-    title: '대자연 쇼핑몰',
-    period: '2014.02 - 2014.02',
-    client: '대자연',
-    stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
-    category: 'Commerce',
-    description: '건강식품 쇼핑몰 UI 퍼블리싱.',
-    color: '#1a1a1a'
-  },
-  {
-    
-    title: '방송고 앱북',
-    period: '2014.01 - 2014.02',
-    client: '방송고',
-    stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
-    category: 'Education',
-    description: '방송통신고등학교 디지털 교과서(앱북) 뷰어.',
-    color: '#1a1a1a'
-  },
-  {
-    
-    title: '공연예술포털 모바일',
-    period: '2013.11 - 2013.12',
-    client: '공연예술포털',
-    stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
-    category: 'Culture',
-    description: '공연 정보 검색 및 예매 포털 모바일 UI.',
-    color: '#1a1a1a'
-  },
-  {
-    
-    title: 'I Will센터',
-    period: '2013.09 - 2013.10',
-    client: 'I Will센터',
-    stack: ['HTML', 'JavaScript', 'CSS', 'SVN'],
-    category: 'Public Sector',
-    description: '인터넷 중독 예방 상담 센터 웹사이트.',
-    color: '#1a1a1a'
-  },
+  //   title: '대자연 쇼핑몰',
+  //   period: '2014.02 - 2014.02',
+  //   client: '대자연',
+  //   stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
+  //   category: 'Commerce',
+  //   description: '건강식품 쇼핑몰 UI 퍼블리싱.',
+  //   color: '#1a1a1a'
+  // },
+  // {
+  //   title: '방송고 앱북',
+  //   period: '2014.01 - 2014.02',
+  //   client: '방송고',
+  //   stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
+  //   category: 'Education',
+  //   description: '방송통신고등학교 디지털 교과서(앱북) 뷰어.',
+  //   color: '#1a1a1a'
+  // },
+  // {
+  //   title: '공연예술포털 모바일',
+  //   period: '2013.11 - 2013.12',
+  //   client: '공연예술포털',
+  //   stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
+  //   category: 'Culture',
+  //   description: '공연 정보 검색 및 예매 포털 모바일 UI.',
+  //   color: '#1a1a1a'
+  // },
+  // {
+  //   title: 'I Will센터',
+  //   period: '2013.09 - 2013.10',
+  //   client: 'I Will센터',
+  //   stack: ['HTML', 'JavaScript', 'CSS', 'SVN'],
+  //   category: 'Public Sector',
+  //   description: '인터넷 중독 예방 상담 센터 웹사이트.',
+  //   color: '#1a1a1a'
+  // },
   {
     
     title: '메리츠화재 걱정인형 모바일',
@@ -489,7 +548,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Finance',
     description: '메리츠화재 캐릭터 마케팅 모바일 페이지.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project33
   },
   {
     
@@ -499,7 +559,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Sports',
     description: '서킷/호텔 복합 테마파크 반응형 웹사이트.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project34
   },
   {
     
@@ -509,7 +570,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Enterprise',
     description: '현대오토에버 내부 시스템 UI 개발.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project35
   },
   {
     
@@ -519,7 +581,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Finance',
     description: '효성 CMS 자금관리 시스템 UI.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project36
   },
   {
     
@@ -530,6 +593,8 @@ export const projects: Project[] = [
     category: 'Finance',
     description: '하나생명 공식 웹사이트 리뉴얼.',
     color: '#1a1a1a'
+    ,
+    image: project37
   },
   {
     
@@ -539,7 +604,8 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Finance',
     description: '우리은행 차세대 뱅킹 시스템 구축 프로젝트.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    image: project17,
   },
   {
     
@@ -549,7 +615,10 @@ export const projects: Project[] = [
     stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
     category: 'Finance',
     description: '산업은행 차세대 시스템 UI 표준화.',
-    color: '#1a1a1a'
+    color: '#1a1a1a',
+    
+    image: project38
+
   },
   {
     
@@ -561,36 +630,36 @@ export const projects: Project[] = [
     description: '암 정보 제공 대국민 포털 퍼블리싱.',
     color: '#1a1a1a'
   },
-  {
+  // {
     
-    title: '전남대 안전망',
-    period: '2012.05 - 2012.07',
-    client: '전남대',
-    stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
-    category: 'Education',
-    description: '대학교 안전 관리 시스템 UI.',
-    color: '#1a1a1a'
-  },
-  {
+  //   title: '전남대 안전망',
+  //   period: '2012.05 - 2012.07',
+  //   client: '전남대',
+  //   stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
+  //   category: 'Education',
+  //   description: '대학교 안전 관리 시스템 UI.',
+  //   color: '#1a1a1a'
+  // },
+  // {
     
-    title: '충북대 안전망',
-    period: '2012.04 - 2012.06',
-    client: '충북대',
-    stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
-    category: 'Education',
-    description: '대학교 연구실 안전 관리 시스템 UI.',
-    color: '#1a1a1a'
-  },
-  {
+  //   title: '충북대 안전망',
+  //   period: '2012.04 - 2012.06',
+  //   client: '충북대',
+  //   stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
+  //   category: 'Education',
+  //   description: '대학교 연구실 안전 관리 시스템 UI.',
+  //   color: '#1a1a1a'
+  // },
+  // {
     
-    title: '인천대 안전망',
-    period: '2012.03 - 2012.04',
-    client: '인천대',
-    stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
-    category: 'Education',
-    description: '대학교 시설 안전 관리 시스템 UI.',
-    color: '#1a1a1a'
-  },
+  //   title: '인천대 안전망',
+  //   period: '2012.03 - 2012.04',
+  //   client: '인천대',
+  //   stack: ['Photoshop', 'HTML', 'JavaScript', 'CSS', 'SVN'],
+  //   category: 'Education',
+  //   description: '대학교 시설 안전 관리 시스템 UI.',
+  //   color: '#1a1a1a'
+  // },
   {
     
     title: '㈜말타니바이오',
@@ -761,36 +830,36 @@ export const projects: Project[] = [
     description: '의료 기기 업체 홈페이지.',
     color: '#1a1a1a'
   },
-  {
+  // {
     
-    title: '희망원정대',
-    period: '2006.10 - 2006.12',
-    client: '희망원정대',
-    stack: ['Photoshop', 'HTML', 'CSS'],
-    category: 'Non-profit',
-    description: '산악 챌린지 및 탐험 대원 소개 사이트.',
-    color: '#1a1a1a'
-  },
-  {
+  //   title: '희망원정대',
+  //   period: '2006.10 - 2006.12',
+  //   client: '희망원정대',
+  //   stack: ['Photoshop', 'HTML', 'CSS'],
+  //   category: 'Non-profit',
+  //   description: '산악 챌린지 및 탐험 대원 소개 사이트.',
+  //   color: '#1a1a1a'
+  // },
+  // {
     
-    title: '쇼핑몰 수피아',
-    period: '2006.09 - 2006.10',
-    client: '수피아',
-    stack: ['Photoshop', 'HTML', 'CSS'],
-    category: 'Commerce',
-    description: '패션 쇼핑몰 UI.',
-    color: '#1a1a1a'
-  },
-  {
+  //   title: '쇼핑몰 수피아',
+  //   period: '2006.09 - 2006.10',
+  //   client: '수피아',
+  //   stack: ['Photoshop', 'HTML', 'CSS'],
+  //   category: 'Commerce',
+  //   description: '패션 쇼핑몰 UI.',
+  //   color: '#1a1a1a'
+  // },
+  // {
     
-    title: '쇼핑몰 깡년',
-    period: '2006.08 - 2006.09',
-    client: '쇼핑몰 깡년',
-    stack: ['Photoshop', 'HTML', 'CSS'],
-    category: 'Commerce',
-    description: '의류 쇼핑몰 웹사이트.',
-    color: '#1a1a1a'
-  },
+  //   title: '쇼핑몰 깡년',
+  //   period: '2006.08 - 2006.09',
+  //   client: '쇼핑몰 깡년',
+  //   stack: ['Photoshop', 'HTML', 'CSS'],
+  //   category: 'Commerce',
+  //   description: '의류 쇼핑몰 웹사이트.',
+  //   color: '#1a1a1a'
+  // },
   {
     
     title: '빅텍',
