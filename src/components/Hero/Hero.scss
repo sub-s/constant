@@ -1,0 +1,331 @@
+@use '../../styles/mixins' as *;
+
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--nav-height);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+// ───────── 배경 레이어 ─────────
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+// 천천히 떠다니는 브랜드 컬러 오로라
+.aurora {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+  will-change: transform;
+
+  &-1 {
+    width: 46vw;
+    height: 46vw;
+    top: -18%;
+    right: -6%;
+    background: radial-gradient(circle, var(--brand-red), transparent 68%);
+    animation: drift 18s ease-in-out infinite alternate;
+  }
+
+  &-2 {
+    width: 38vw;
+    height: 38vw;
+    bottom: -10%;
+    left: -10%;
+    background: radial-gradient(circle, var(--brand-orange), transparent 68%);
+    opacity: 0.28;
+    animation: drift 24s ease-in-out infinite alternate-reverse;
+  }
+}
+
+[data-theme='light'] .aurora {
+  opacity: 0.22;
+}
+
+@keyframes drift {
+  to {
+    transform: translate3d(-6vw, 5vh, 0) scale(1.15);
+  }
+}
+
+// 가장자리로 갈수록 사라지는 격자
+.grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 65% 40%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 65% 40%, #000 20%, transparent 75%);
+  opacity: 0.7;
+}
+
+// 3D 씬: 히어로 전체를 덮는 배경 캔버스 (포인터는 document 기준으로 읽으므로 이벤트는 받지 않는다)
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  @include respond(md) {
+    opacity: 0.55;
+  }
+}
+
+// 오른쪽 칸: 캔버스의 3D 오브제가 비쳐 보이는 자리만 확보
+.hero-visual {
+  min-height: clamp(280px, 32vw, 440px);
+
+  @include respond(md) {
+    display: none;
+  }
+}
+
+// ───────── 콘텐츠 ─────────
+.hero-inner {
+  width: 100%;
+  margin-block: auto;
+  padding-block: clamp(2rem, 5vw, 4rem);
+}
+
+// 좌: 텍스트 / 우: 3D 오브제
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  padding: 0.4rem 0.9rem;
+  @include glass(999px);
+  @include mono-label;
+  text-transform: none;
+  color: var(--text-secondary);
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--brand-orange);
+    box-shadow: 0 0 12px var(--brand-orange);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.hero-title {
+  @include display-heading(var(--fs-hero));
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+
+  // 두 번째 줄은 브랜드 그라데이션
+  .blur-line:nth-child(2) {
+    .blur-word {
+      @include brand-gradient-text;
+    }
+  }
+}
+
+.hero-subtitle {
+  max-width: 46ch;
+  font-size: var(--fs-lead);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 2.25rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+// 하단 팩트 스트립: 컨테이너 전체 폭을 3등분하는 라인
+.hero-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--border-strong);
+
+  > div {
+    padding: 1.25rem 0 0;
+
+    + div {
+      padding-left: 1.5rem;
+      border-left: 1px solid var(--border-subtle);
+    }
+  }
+
+  dt {
+    @include mono-label;
+    margin-bottom: 0.35rem;
+  }
+
+  dd {
+    font-size: var(--fs-h3);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+
+    > div {
+      padding: 1rem 0;
+
+      + div {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid var(--border-subtle);
+      }
+    }
+  }
+}
+
+.hero-marquee {
+  padding: 1.5rem 0 2rem;
+  border-top: 1px solid var(--border-subtle);
+  background: color-mix(in srgb, var(--bg-primary) 60%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora,
+  .hero-eyebrow .dot {
+    animation: none;
+  }
+}
+
+// ───────── 시네마틱 패럴랙스 레이어 ─────────
+.hero-parallax {
+  position: absolute;
+  inset: 0;
+}
+
+// 능선 뒤에서 번지는 노을빛
+.hero-sun {
+  position: absolute;
+  left: 62%;
+  bottom: 14%;
+  width: min(70vw, 900px);
+  aspect-ratio: 1.6;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at 50% 100%, rgba(255, 138, 61, 0.38), rgba(255, 61, 90, 0.16) 45%, transparent 70%);
+  filter: blur(20px);
+}
+
+// 천천히 흔들리는 빛줄기 (Aceternity Background Beams 느낌)
+.hero-beam {
+  position: absolute;
+  top: -20%;
+  width: 22vw;
+  height: 120%;
+  background: linear-gradient(180deg, rgba(255, 190, 140, 0.22), transparent 75%);
+  filter: blur(28px);
+  transform-origin: 50% 0;
+  mix-blend-mode: screen;
+
+  &.beam-a {
+    left: 48%;
+    transform: rotate(18deg);
+    animation: beam-sway 14s ease-in-out infinite alternate;
+  }
+
+  &.beam-b {
+    left: 66%;
+    width: 14vw;
+    opacity: 0.7;
+    transform: rotate(28deg);
+    animation: beam-sway 19s ease-in-out infinite alternate-reverse;
+  }
+}
+
+[data-theme='light'] .hero-beam {
+  mix-blend-mode: normal;
+  opacity: 0.35;
+}
+
+@keyframes beam-sway {
+  to {
+    transform: rotate(10deg);
+  }
+}
+
+// 능선: 아래에 붙이고, 좌우 이동 여유를 위해 가로를 넓게 잡는다
+.ridge {
+  position: absolute;
+  left: -6%;
+  bottom: -1px;
+  width: 112%;
+  height: 58%;
+  will-change: transform;
+
+  path {
+    transition: fill var(--transition-smooth);
+  }
+
+  &-1 path {
+    fill: var(--ridge-1);
+  }
+
+  &-2 path {
+    fill: var(--ridge-2);
+  }
+
+  &-3 path {
+    fill: var(--ridge-3);
+  }
+
+  &-4 path {
+    fill: var(--ridge-4);
+  }
+
+  // 뒤쪽 두 겹에는 능선 윗선에 은은한 빛 테두리
+  &-1,
+  &-2 {
+    filter: drop-shadow(0 -1px 0 rgba(255, 140, 100, 0.28));
+  }
+}
+
+// 위·아래를 어둡게 눌러 영화 같은 비네트 연출
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-primary) 70%, transparent), transparent 22%),
+    radial-gradient(ellipse at 50% 45%, transparent 55%, color-mix(in srgb, var(--bg-primary) 65%, transparent) 100%);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-beam {
+    animation: none;
+  }
+}

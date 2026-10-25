@@ -1,0 +1,98 @@
+// 디자인 토큰 (다크 기본 / 라이트는 [data-theme="light"])
+:root {
+  // 표면 — 순흑 대신 아주 약간 푸른 기가 도는 잉크 블랙
+  --bg-primary: #07070b;
+  --bg-secondary: #0d0d13;
+  --bg-card: #12121a;
+
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1ad;
+  --text-muted: #6a6a78;
+
+  // 브랜드 3색 (로고 심볼과 동일)
+  --brand-red: #ff3d5a;
+  --brand-orange: #ff8a3d;
+  --brand-yellow: #ffc83d;
+
+  --accent-primary: var(--brand-red);
+  --accent-glow: rgba(255, 61, 90, 0.35);
+  --accent-ink: #fff;
+  --grad-brand: linear-gradient(100deg, var(--brand-red) 0%, var(--brand-orange) 55%, var(--brand-yellow) 100%);
+  --gradient-primary: linear-gradient(to right, #f5f5f7, #a1a1ad);
+
+  // 글래스 / 테두리
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --spotlight: rgba(255, 90, 80, 0.16);
+
+  // 히어로 능선 레이어 (뒤 → 앞). 맨 앞은 배경색과 같아 다음 섹션과 자연스럽게 이어진다
+  --ridge-1: #2a1219;
+  --ridge-2: #1c0f16;
+  --ridge-3: #120b11;
+  --ridge-4: #07070b;
+  --star: rgba(255, 238, 225, 0.9);
+
+  // 타이포그래피
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  // 타입 스케일 — 유동(clamp) 크기. 390px(모바일) ~ 1440px(데스크톱)에서 아래 값으로 변한다
+  --fs-hero: clamp(2.125rem, 1.4rem + 3.2vw, 4rem);      // 34px ~ 64px
+  --fs-headline: clamp(1.75rem, 1.1rem + 2.2vw, 2.75rem); // 28px ~ 44px
+  --fs-h2: clamp(1.5rem, 1rem + 1.6vw, 2.25rem);          // 24px ~ 36px
+  --fs-h3: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);          // 18px ~ 22px
+  --fs-lead: clamp(0.98rem, 0.9rem + 0.3vw, 1.1rem);      // 16px ~ 18px
+
+  // 간격
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+
+  // 라운드
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  // 레이아웃
+  --container-max: 1240px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --nav-height: 72px;
+
+  // z-index 스케일
+  --z-nav: 100;
+  --z-top: 110;
+  --z-modal: 200;
+
+  // 모션
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-theme='light'] {
+  --bg-primary: #f7f6f3;
+  --bg-secondary: #efede8;
+  --bg-card: #ffffff;
+
+  --text-primary: #14141a;
+  --text-secondary: #55555f;
+  --text-muted: #8a8a94;
+
+  --accent-glow: rgba(255, 61, 90, 0.18);
+  --gradient-primary: linear-gradient(to right, #14141a, #55555f);
+
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(20, 20, 26, 0.09);
+  --border-subtle: rgba(20, 20, 26, 0.09);
+  --border-strong: rgba(20, 20, 26, 0.22);
+  --spotlight: rgba(255, 61, 90, 0.1);
+
+  --ridge-1: #f3dcd8;
+  --ridge-2: #f1e4dd;
+  --ridge-3: #f4eee8;
+  --ridge-4: #f7f6f3;
+  --star: rgba(120, 70, 50, 0.55);
+}

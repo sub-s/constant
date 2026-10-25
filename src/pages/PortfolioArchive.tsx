@@ -1,78 +1,50 @@
-import '@/components/Portfolio/Portfolio.css';
+import Footer from '@/components/Layout/Footer';
+import '@/components/Portfolio/Portfolio.scss';
+import ProjectCard from '@/components/Portfolio/ProjectCard';
 import ProjectModal from '@/components/Portfolio/ProjectModal';
+import BlurText from '@/components/ui/BlurText';
 import { projects } from '@/data/projects';
 import { Project } from '@/types/project';
+import { ArrowLeft } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import NoImage from '@/components/Portfolio/NoImage';
+import { useNavigate } from 'react-router-dom';
 
+/** 전체 프로젝트 아카이브 페이지 */
 const PortfolioArchive = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const navigate = useNavigate();
 
-  // Scroll to top on mount
+  // 페이지 진입 시 항상 최상단에서 시작
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="portfolio-archive-page" style={{ paddingTop: '80px', minHeight: '100vh', background: 'var(--bg-primary)' }}>
+    <main id="main" className="portfolio-archive-page">
       <div className="container">
-        <div style={{ marginBottom: '40px', textAlign: 'center' }}>
-            <h1 className="section-title">All Projects</h1>
-            <p style={{ color: 'var(--text-secondary)', marginTop: '10px' }}>
-                Constant가 진행한 {projects.length}개의 프로젝트 아카이브입니다.
-            </p>
-        </div>
+        <button className="text-link archive-back" onClick={() => navigate('/')}>
+          <ArrowLeft size={16} aria-hidden="true" /> 홈으로
+        </button>
+        <header className="archive-header">
+          <h1 className="section-title">
+            <BlurText text="All projects" />
+          </h1>
+          <p>지금까지 참여한 {projects.length}개의 프로젝트 아카이브입니다.</p>
+        </header>
 
         <div className="project-grid">
           {projects.map((project, index) => (
-            <div
-              key={index}
-              className="project-card"
-              onClick={() => setSelectedProject(project)}
-            >
-              <div className="project-image">
-                {project.image ? (
-                    <img 
-                        src={project.image} 
-                        alt={project.title} 
-                        style={{ 
-                            width: '100%', 
-                            height: '100%', 
-                            objectFit: 'cover'
-                        }}
-                    />
-                ) : (
-                    <NoImage />
-                )}
-                <div className="project-overlay">
-                  <span>자세히 보기</span>
-                </div>
-              </div>
-              <div className="project-info">
-                <span className="project-category">{project.category}</span>
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-desc">{project.description}</p>
-              </div>
-            </div>
+            <ProjectCard key={project.title} project={project} index={index} onSelect={setSelectedProject} />
           ))}
         </div>
-      </div>
 
-      <div style={{ padding: '60px 0', textAlign: 'center', borderTop: '1px solid var(--border-subtle)', marginTop: '60px' }}>
-          <footer className="footer">
-            <p className="copyright">
-                &copy; {new Date().getFullYear()} Constant. All rights reserved.
-            </p>
-          </footer>
+        <Footer />
       </div>
 
       {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
+        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
       )}
-    </div>
+    </main>
   );
 };
 

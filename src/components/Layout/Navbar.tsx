@@ -1,133 +1,133 @@
 import logoSymbol from '@/assets/logo-symbol.svg';
+import ScrollProgress from '@/components/ui/ScrollProgress';
+import { useThemeStore } from '@/stores/useThemeStore';
+import { Menu, Moon, Sun, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import './Navbar.css';
-import './Navbar_theme.css';
+import './Navbar.scss';
+
+/** 홈 화면 안에서 스크롤 이동하는 섹션 메뉴 */
+const SECTION_LINKS = [
+  { id: 'about', label: '소개' },
+  { id: 'services', label: '전문 영역' },
+  { id: 'portfolio', label: '프로젝트' },
+  { id: 'faq', label: 'FAQ' },
+];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeId, setActiveId] = useState('');
+  const { theme, toggleTheme } = useThemeStore();
   const location = useLocation();
   const navigate = useNavigate();
+  const isHome = location.pathname === '/';
 
+  // 스크롤 위치에 따라 네비게이션 배경(글래스) 활성화
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 40);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Handle cross-page scrolling
+  // 다른 페이지에서 홈으로 넘어온 뒤 지정 섹션으로 스크롤
   useEffect(() => {
-    if (location.state && location.state.scrollTo) {
-        const sectionId = location.state.scrollTo;
-        const element = document.getElementById(sectionId);
-        if (element) {
-            setTimeout(() => {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }, 100); // Small delay to ensure render
-        }
-        // Clear state to avoid scrolling on subsequent refreshes (optional but good practice)
-        window.history.replaceState({}, document.title);
-    }
+    const sectionId = location.state?.scrollTo;
+    if (!sectionId) return;
+    const timer = setTimeout(() => {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    }, 100); // 렌더 완료 대기
+    // 새로고침 시 반복 스크롤 방지를 위해 state 제거
+    window.history.replaceState({}, document.title);
+    return () => clearTimeout(timer);
   }, [location]);
 
-  const [theme, setTheme] = useState('dark');
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  // 홈에서 현재 화면 중앙에 걸린 섹션을 메뉴에 강조 표시
   useEffect(() => {
-    // Check local storage or system preference
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    } else if (!prefersDark) {
-      setTheme('light');
-      document.documentElement.setAttribute('data-theme', 'light');
+    if (!isHome) {
+      setActiveId('');
+      return;
     }
-  }, []);
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && setActiveId(e.target.id)),
+      { rootMargin: '-45% 0px -50% 0px' }
+    );
+    [...SECTION_LINKS.map((l) => l.id), 'contact'].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, [isHome]);
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-  };
+  // 모바일 메뉴가 열린 동안 본문 스크롤 잠금
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
+  /** 메뉴 클릭 처리: 섹션으로 스크롤 (홈이 아니면 홈으로 이동 후 스크롤) */
   const handleLinkClick = (id: string) => {
     setIsMobileMenuOpen(false);
 
-    if (id === 'ai-request') {
-        navigate('/ai-request');
-        return;
-    }
-
-    if (id === 'login') {
-        navigate('/login');
-        return;
-    }
-
-    if (location.pathname === '/') {
-        // If on home page, just scroll
-        scrollToSection(id);
+    if (isHome) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     } else {
-        // If on subpage, navigate home with state
-        navigate('/', { state: { scrollTo: id } });
+      navigate('/', { state: { scrollTo: id } });
     }
   };
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <div className="container navbar-content">
-        <div className="logo-container" onClick={() => handleLinkClick('home')} style={{ cursor: 'pointer' }}>
-          <img src={logoSymbol} alt="Constant" className="logo-symbol" />
-          {/* <span className="logo-text">Constant</span> */}
-        </div>
-        
-        <button className="mobile-menu-toggle" onClick={toggleMobileMenu} aria-label="Toggle menu">
-          {isMobileMenuOpen ? (
-             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-             </svg>
-          ) : (
-             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 12H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M3 6H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-             </svg>
-          )}
-        </button>
+    <>
+      <ScrollProgress />
+      <nav aria-label="주요 메뉴" className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+        <div className="container navbar-content">
+          <button className="nav-logo" onClick={() => handleLinkClick('home')} aria-label="포트폴리오 홈">
+            <img src={logoSymbol} alt="" className="logo-symbol" />
+            <span className="logo-word">Portfolio</span>
+          </button>
 
-        <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
-          <li><button onClick={() => handleLinkClick('home')}>홈</button></li>
-          <li><button onClick={() => handleLinkClick('about')}>소개</button></li>
-          <li><button onClick={() => handleLinkClick('services')}>서비스</button></li>
-          <li><button onClick={() => handleLinkClick('portfolio')}>포트폴리오</button></li>
-          <li><button onClick={() => handleLinkClick('login')}>로그인</button></li>
-          <li><button className="nav-special-btn" onClick={() => handleLinkClick('ai-request')}>AI 제작 의뢰</button></li>
-          <li><button className="cta-button" onClick={() => handleLinkClick('contact')}>문의하기</button></li>
-          <li>
-            <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
-              {theme === 'dark' ? '☀️' : '🌙'}
-            </button>
-          </li>
-        </ul>
-      </div>
-    </nav>
+          <button
+            className="mobile-menu-toggle"
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
+            aria-label="메뉴 열기/닫기"
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+
+          <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
+            {SECTION_LINKS.map((link) => (
+              <li key={link.id}>
+                <button
+                  className={activeId === link.id ? 'current' : ''}
+                  onClick={() => handleLinkClick(link.id)}
+                  aria-current={activeId === link.id ? 'true' : undefined}
+                >
+                  {link.label}
+                </button>
+              </li>
+            ))}
+            <li>
+              <button className="cta-button" onClick={() => handleLinkClick('contact')}>
+                연락하기
+              </button>
+            </li>
+            <li>
+              <button
+                className="theme-toggle"
+                onClick={toggleTheme}
+                aria-label={theme === 'dark' ? '라이트 모드로 전환' : '다크 모드로 전환'}
+              >
+                {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </>
   );
 };
 

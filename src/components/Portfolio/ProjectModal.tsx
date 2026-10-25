@@ -1,25 +1,33 @@
 import { Project } from '@/types/project';
 import { useEffect, useState } from 'react';
+import { X } from 'lucide-react';
 import { createPortal } from 'react-dom';
 import NoImage from './NoImage';
-import './ProjectModal.css';
+import './ProjectModal.scss';
 
 interface ProjectModalProps {
   project: Project | null;
   onClose: () => void;
 }
 
+/** 프로젝트 상세 모달 — ESC/바깥 클릭으로 닫히고, 열려 있는 동안 본문 스크롤을 잠근다 */
 const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // 마운트 시 열림 애니메이션 시작 + 본문 스크롤 잠금 + ESC 로 닫기
   useEffect(() => {
     setIsOpen(true);
     document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && handleClose();
+    window.addEventListener('keydown', onKey);
     return () => {
       document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', onKey);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  /** 닫힘 애니메이션(300ms) 후 부모에 닫기 알림 */
   const handleClose = () => {
     setIsOpen(false);
     setTimeout(onClose, 300);
@@ -29,12 +37,9 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
 
   return createPortal(
     <div className={`modal-overlay ${isOpen ? 'open' : ''}`} onClick={handleClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-content" role="dialog" aria-modal="true" aria-label={project.title} onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={handleClose} aria-label="Close modal">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <X size={22} aria-hidden="true" />
         </button>
         
         <div className="modal-header">
@@ -58,21 +63,9 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
         </div>
 
         <div className="modal-body">
-          <div className="modal-image-placeholder" style={{ 
-              background: 'none',
-              border: 'none'
-          }}>
+          <div className="modal-image-placeholder">
              {project.image ? (
-                <img 
-                    src={project.image} 
-                    alt={project.title}
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        opacity: 1
-                    }} 
-                />
+                <img src={project.image} alt={`${project.title} 화면`} />
              ) : (
                 <NoImage />
              )}

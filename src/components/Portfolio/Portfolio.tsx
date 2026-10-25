@@ -1,76 +1,48 @@
+import Reveal from '@/components/ui/Reveal';
 import { projects } from '@/data/projects';
 import { Project } from '@/types/project';
+import { ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Portfolio.css';
-import './Portfolio_loadmore.css';
+import './Portfolio.scss';
+import ProjectCard from './ProjectCard';
 import ProjectModal from './ProjectModal';
-import NoImage from './NoImage';
+
+/** 홈 화면에 노출하는 대표 프로젝트 수 */
+const FEATURED_COUNT = 6;
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const navigate = useNavigate();
 
-  const gridProjects = projects.slice(0, 6);
+  const gridProjects = projects.slice(0, FEATURED_COUNT);
 
   return (
     <section id="portfolio" className="section portfolio">
       <div className="container">
-        <h2 className="section-title">Selected Works</h2>
-        
-        {/* Initial 6 Items Grid */}
+        <Reveal className="section-head">
+          <span className="index">03</span>
+          <span>Selected projects</span>
+        </Reveal>
+        <Reveal>
+          <h2 className="section-title">참여해 온 프로젝트.</h2>
+        </Reveal>
+
         <div className="project-grid">
           {gridProjects.map((project, index) => (
-            <div
-              key={index}
-              className="project-card"
-              onClick={() => setSelectedProject(project)}
-            >
-              <div className="project-image">
-                {project.image ? (
-                    <img 
-                        src={project.image} 
-                        alt={project.title} 
-                        style={{ 
-                            width: '100%', 
-                            height: '100%', 
-                            objectFit: 'cover'
-                        }}
-                    />
-                ) : (
-                    <NoImage />
-                )}
-                <div className="project-overlay">
-                  <span>케이스 스터디 보기</span>
-                  {/* <span style={{ fontSize: '0.8rem', marginTop: '0.5rem', opacity: 0.8 }}>Size: 1920 x 1080 (16:9)</span> */}
-                </div>
-              </div>
-              <div className="project-info">
-                <span className="project-category">{project.category}</span>
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-desc">{project.description}</p>
-              </div>
-            </div>
+            <ProjectCard key={project.title} project={project} index={index} onSelect={setSelectedProject} />
           ))}
         </div>
-        
-        {/* View All Button */}
-        <div className="view-all-container" style={{ textAlign: 'center', marginTop: '60px' }}>
-            <button 
-                className="primary-btn" 
-                onClick={() => navigate('/portfolio')}
-                style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}
-            >
-                View All Projects ({projects.length})
-            </button>
-        </div>
+
+        <Reveal className="view-all-container">
+          <button className="primary-btn" onClick={() => navigate('/portfolio')}>
+            전체 프로젝트 {projects.length}개 보기 <ArrowRight size={18} aria-hidden="true" />
+          </button>
+        </Reveal>
       </div>
 
       {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
+        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
       )}
     </section>
   );

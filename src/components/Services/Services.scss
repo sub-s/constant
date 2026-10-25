@@ -1,0 +1,71 @@
+@use '../../styles/mixins' as *;
+
+.services {
+  background: linear-gradient(180deg, transparent, var(--bg-secondary) 20%, var(--bg-secondary) 80%, transparent);
+}
+
+.service-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 3rem 3.5rem minmax(0, 5fr) minmax(0, 6fr);
+  gap: 1.5rem;
+  align-items: center;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+
+  @include respond(md) {
+    grid-template-columns: 2.5rem 1fr;
+    align-items: start;
+    gap: 1rem;
+
+    .service-body {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+.service-no {
+  @include mono-label;
+}
+
+.service-icon {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-md);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--brand-orange);
+  transition: background-color var(--transition-smooth), color var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.service-row:hover .service-icon {
+  background: var(--grad-brand);
+  color: #14141a;
+  transform: rotate(-6deg) scale(1.06);
+  border-color: transparent;
+}
+
+.service-title {
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+
+.service-desc {
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 48ch;
+}
+
+.service-tag {
+  display: block;
+  margin-top: 0.9rem;
+  @include mono-label;
+  text-transform: none;
+}

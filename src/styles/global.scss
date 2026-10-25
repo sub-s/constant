@@ -1,0 +1,225 @@
+@use './mixins' as *;
+
+// ───────── Reset & Base ─────────
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+  word-break: keep-all;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100dvh;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+::selection {
+  background: var(--accent-primary);
+  color: var(--accent-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+}
+
+// 은은한 노이즈 질감 — 플랫한 느낌 완화
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+// ───────── Layout ─────────
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  position: relative;
+  z-index: 2;
+}
+
+.section {
+  padding: clamp(5rem, 11vw, 9rem) 0;
+  position: relative;
+}
+
+// 섹션 헤더: 번호 + 라벨 + 라인
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  @include mono-label;
+
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border-strong), transparent);
+  }
+
+  .index {
+    color: var(--accent-primary);
+  }
+}
+
+.section-title {
+  @include display-heading(var(--fs-h2));
+  margin-bottom: var(--spacing-lg);
+  max-width: 20ch;
+}
+
+// 브랜드 그라데이션 텍스트 유틸
+.text-gradient {
+  @include brand-gradient-text;
+}
+
+// ───────── 버튼 ─────────
+.primary-btn,
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: transform var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-smooth);
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  svg {
+    transition: transform var(--transition-smooth);
+  }
+
+  &:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+.primary-btn {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+
+  &:hover {
+    box-shadow: 0 0 0 1px var(--accent-primary), 0 12px 40px -8px var(--accent-glow);
+    background: var(--accent-primary);
+    color: var(--accent-ink);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: wait;
+  }
+}
+
+.secondary-btn {
+  @include glass(999px);
+  color: var(--text-primary);
+
+  &:hover {
+    border-color: var(--text-primary);
+  }
+}
+
+// 텍스트 링크 (3순위 액션)
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-strong);
+  padding-bottom: 2px;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+
+  &:hover {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+  }
+}
+
+// ───────── 접근성 유틸 ─────────
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: var(--z-modal);
+  padding: 0.6rem 1rem;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-radius: var(--radius-sm);
+  transform: translateY(-200%);
+
+  &:focus {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

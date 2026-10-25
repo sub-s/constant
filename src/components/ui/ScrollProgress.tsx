@@ -1,0 +1,12 @@
+import { motion, useScroll, useSpring } from 'motion/react';
+import './ui.scss';
+
+/** 페이지 최상단에 붙는 스크롤 진행률 바 (Magic UI Scroll Progress 스타일) */
+const ScrollProgress = () => {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 140, damping: 28, restDelta: 0.001 });
+
+  return <motion.div className="scroll-progress" style={{ scaleX }} aria-hidden="true" />;
+};
+
+export default ScrollProgress;

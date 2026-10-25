@@ -1,0 +1,30 @@
+@use '../../styles/mixins' as *;
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include glass(50%);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity var(--transition-smooth), transform var(--transition-smooth), background-color var(--transition-fast), box-shadow var(--transition-smooth);
+  z-index: var(--z-top);
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  &:hover {
+    background: var(--accent-primary);
+    color: var(--accent-ink);
+    box-shadow: 0 10px 30px -8px var(--accent-glow);
+  }
+}

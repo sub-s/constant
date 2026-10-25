@@ -1,0 +1,146 @@
+@use '../../styles/mixins' as *;
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+
+  @include respond(lg) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-card {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  @include glass(var(--radius-lg));
+  overflow: hidden;
+  transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+
+  &:hover {
+    border-color: var(--border-strong);
+    box-shadow: 0 30px 70px -30px var(--accent-glow);
+  }
+}
+
+.project-image {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-card);
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 1s var(--transition-smooth);
+  }
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.06);
+}
+
+// 카테고리 칩 (이미지 좌상단)
+.project-chip {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg-primary) 70%, transparent);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  @include mono-label;
+  text-transform: none;
+  color: var(--text-primary);
+}
+
+// 호버 시 우하단에 나타나는 열기 아이콘
+.project-open {
+  position: absolute;
+  right: 0.9rem;
+  bottom: 0.9rem;
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  color: var(--accent-ink);
+  opacity: 0;
+  transform: translate(8px, 8px) scale(0.8);
+  transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.project-card:hover .project-open {
+  opacity: 1;
+  transform: none;
+}
+
+.project-info {
+  position: relative;
+  padding: 1.25rem 1.4rem 1.5rem;
+}
+
+.project-no {
+  @include mono-label;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.project-title {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.3;
+  margin-bottom: 0.4rem;
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.view-all-container {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  display: flex;
+  justify-content: center;
+}
+
+// ───────── 아카이브 페이지 ─────────
+.portfolio-archive-page {
+  padding-top: calc(var(--nav-height) + 3rem);
+  min-height: 100dvh;
+}
+
+.archive-back {
+  margin-bottom: 2.5rem;
+  font-size: 0.9rem;
+}
+
+.archive-header {
+  margin-bottom: clamp(2.5rem, 6vw, 5rem);
+
+  .section-title {
+    max-width: none;
+    @include display-heading(var(--fs-headline));
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: var(--text-secondary);
+  }
+}

@@ -1,0 +1,53 @@
+@use 'sass:map';
+
+// 공용 SCSS 믹스인 / 브레이크포인트
+// 사용법: @use '../../styles/mixins' as *;
+
+// 반응형 브레이크포인트 (max-width 기준)
+$breakpoints: (
+  sm: 640px,
+  md: 860px,
+  lg: 1100px,
+);
+
+// 지정한 브레이크포인트 이하에서만 스타일 적용
+@mixin respond($key) {
+  @media (max-width: map.get($breakpoints, $key)) {
+    @content;
+  }
+}
+
+// 모노스페이스 라벨 (섹션 번호, 메타 정보용)
+@mixin mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+// 글래스 표면 (반투명 + 블러 + 1px 테두리)
+@mixin glass($radius: var(--radius-lg)) {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: $radius;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+// 브랜드 3색 그라데이션 텍스트
+@mixin brand-gradient-text {
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+// 큰 헤드라인 공통 스타일 (크기는 variables.scss 의 --fs-* 토큰을 넘겨 사용)
+@mixin display-heading($size: var(--fs-headline)) {
+  font-size: $size;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}

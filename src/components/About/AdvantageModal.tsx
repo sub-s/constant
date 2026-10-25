@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
+import { X } from 'lucide-react';
 import { createPortal } from 'react-dom';
-import './AdvantageModal.css';
+import './AdvantageModal.scss';
 
 interface Message {
   title: string;
@@ -13,6 +14,7 @@ interface AdvantageModalProps {
   onClose: () => void;
 }
 
+/** 강점 상세 모달 — ESC 로 닫기, 열려 있는 동안 본문 스크롤 잠금 */
 const AdvantageModal: React.FC<AdvantageModalProps> = ({ item, onClose }) => {
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -29,8 +31,8 @@ const AdvantageModal: React.FC<AdvantageModalProps> = ({ item, onClose }) => {
 
   return createPortal(
     <div className="advantage-modal-overlay" onClick={onClose}>
-      <div className="advantage-modal-content" onClick={e => e.stopPropagation()}>
-        <button className="advantage-modal-close" onClick={onClose}>&times;</button>
+      <div className="advantage-modal-content" role="dialog" aria-modal="true" aria-label={item.title} onClick={e => e.stopPropagation()}>
+        <button className="advantage-modal-close" onClick={onClose} aria-label="닫기"><X size={22} aria-hidden="true" /></button>
         
         <h3 className="advantage-modal-title">{item.title}</h3>
         <p className="advantage-modal-description">{item.description}</p>
