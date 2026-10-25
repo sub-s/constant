@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://constant.dev/sitemap.xml
+Sitemap: https://sub-s.github.io/constant/sitemap.xml
