@@ -286,6 +286,11 @@
   height: 58%;
   will-change: transform;
 
+  // 좁은 화면에서는 능선을 낮춰 비율이 찌그러지지 않게 하고, 텍스트 영역을 가리지 않게 한다
+  @include respond(md) {
+    height: 30%;
+  }
+
   path {
     transition: fill var(--transition-smooth);
   }

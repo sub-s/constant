@@ -17,9 +17,10 @@
   padding: clamp(1.5rem, 3vw, 2.25rem);
 
   @include respond(md) {
-    grid-template-columns: 2.5rem 1fr;
-    align-items: start;
-    gap: 1rem;
+    // 1행: 번호 · 아이콘 · 제목 / 2행: 설명 (제목이 번호 칸에 끼어 글자 단위로 꺾이지 않게 3칸으로 구성)
+    grid-template-columns: auto auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0.75rem 1rem;
 
     .service-body {
       grid-column: 1 / -1;

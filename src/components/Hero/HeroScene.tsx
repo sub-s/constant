@@ -108,6 +108,9 @@ const LogoBars = ({ animated }: { animated: boolean }) => {
     });
   });
 
+  // 모바일(세로 화면)에서는 막대가 텍스트와 겹쳐 가독성을 해치므로 그리지 않고 별가루·능선만 남긴다
+  if (!isWide) return null;
+
   return (
     <group ref={group} position={[baseX, baseY, 0]} rotation={[0.1, -0.3, 0]}>
       {BARS.map((bar, i) => (

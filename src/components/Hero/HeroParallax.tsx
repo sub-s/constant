@@ -90,7 +90,7 @@ const RidgeLayer = ({ index, ridge, path, scrollY, smoothX }: RidgeLayerProps) =
     <motion.svg
       className={`ridge ridge-${index + 1}`}
       viewBox="0 0 1600 400"
-      preserveAspectRatio="none"
+      preserveAspectRatio="xMidYMax slice"
       style={{ x, y }}
     >
       <path d={path} />
